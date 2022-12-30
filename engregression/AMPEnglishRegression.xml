@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="engAmpBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="8" parallel="classes" name="Test">
+    <classes>
+    <!--AMPBody  -->
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHotAndTrendingWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHomePageBusinessWidget"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishExplainersWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHomePageIndiaWidget"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishVideosWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishSportsWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishPhotogalleryWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishLifestyleWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishWorldWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishOpinionWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHealthAndFitnessWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishTechWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHomePageMoviesWidget"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishNews18ShowshaWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishAutoWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishWebstoriesWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHomePageCricketNextWidget"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishTopStoriesWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHomePageHoroscopeWidget"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishLatestNewsSection"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishEducationAndCareerWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishCricketNextWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishFootballWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishHomePageVideoWallWidget"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishBuzzWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishPoliticsWidgetTest"/>
+      <class name="com.news18.ampregressionhomepagebodyvalidation.AMPEnglishPriorityPanelTest"/>
+      <!--AMPHeader  -->
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHomePageLiveTv"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHomePageLogo"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHamburgerGroupSitesValidationTest"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHamburgerInTrendsValidationTest"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHamburgerSectionValidationTest"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHamburgerNW18InitiativesValidationTest"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHamburgerKnowUsValidationTest"/>
+      <class name="com.news18.ampregressionhomepageheadervalidation.AMPEnglishHamburgerHeaderSectionValidationTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/assam/AssamAds.xml"/>
+	<suite-file path="/assam/AssamAMPValidation.xml"/>
+	<suite-file path="/assam/AssamGAComScore.xml.xml"/>
+	<suite-file path="/assam/AssamImageValidation.xml"/>
+	<suite-file path="/assam/AssamIzooto.xml"/>
+	<suite-file path="/assam/AssamLatestSection.xml"/>
+	<suite-file path="/assam/AssamLinkValidation.xml"/>
+	<!-- <suite-file path="/assam/AssamMetaRobot.xml"/> -->
+	<suite-file path="/assam/AssamMetaTagContent.xml"/>
+	<suite-file path="/assam/AssamOutbrain.xml"/>
+	<suite-file path="/assam/AssamSocialShare.xml"/>
+	<suite-file path="/assam/AssamStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->

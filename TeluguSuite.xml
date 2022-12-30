@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/telugu/TeluguAds.xml"/>
+	<suite-file path="/telugu/TeluguAMPValidation.xml"/>
+	<suite-file path="/telugu/TeluguGaAndComscore.xml"/>
+	<suite-file path="/telugu/TeluguHomePageLinkValidation.xml"/>
+	<suite-file path="/telugu/TeluguImageValidation.xml"/>
+	<suite-file path="/telugu/TeluguIzooto.xml"/>
+	<suite-file path="/telugu/TeluguLatestSectionTimeValidation.xml"/>
+	<!-- <suite-file path="/telugu/TeluguMetaTagRobot.xml"/> -->
+	<suite-file path="/telugu/TeluguOutbrain.xml"/>
+	<suite-file path="/telugu/TeluguSchemaValidation.xml "/>
+    <suite-file path="/telugu/TeluguSocialShareIconValidation.xml"/>
+
+</suite-files>
+</suite> <!-- Suite -->

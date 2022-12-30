@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="classes" name="Suite">
+<listeners>  
+<listener class-name="com.news18.init.ListenerUtility"/>  
+</listeners>
+  <test name="Test">
+  
+    <classes>
+    
+    <class name="com.news18.homepagelinksvalidation.MobileUrduHomePageLinks"/>
+     <class name="com.news18.homepagelinksvalidation.DesktopUrduHomePageLinks"/> 
+      <class name="com.news18.ampvalidation.AMPUrduValidationsTest"/>
+      <class name="com.news18.gacomscore.DesktopUrduGaAndComscoreValidation"/>
+      <class name="com.news18.outbrainvalidation.DesktopUrduOutbrainTest"/>
+      <class name="com.news18.metatagrobots.DesktopUrduMetaTag"/>
+      <class name="com.news18.metatagrobots.MobileUrduMetaTag"/> 
+      <class name="com.news18.gacomscore.AMPUrduGaAndComscoreValidation"/>
+      <class name="com.news18.outbrainvalidation.MobileUrduOutbrainTest"/> 
+      <class name="com.news18.gacomscore.MobileUrduGaAndComscoreValidation"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

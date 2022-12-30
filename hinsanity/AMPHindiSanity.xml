@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="hinAmpBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="5" parallel="classes" name="Test">
+  
+    <classes>
+      <!--AMP Body  -->
+      
+	  <!-- <class name="com.news18.ampsanitybodyvalidation.AMPHindiNewStack"/>
+	  <class name="com.news18.ampsanitybodyvalidation.AMPHindiValidationTest"/>
+	  <class name="com.news18.ampsanitybodyvalidation.AMPHindiCrimeWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiKnowledgeWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiNews18HindiPlusWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiNationWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiLifeWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiLiveBlog"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiWorldWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiWebStoriesTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiPradeshStateWiseArticles"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiAutoSection"/>
+      <class name="com.news18.ampsanitybodyvalidation.AmpHindiSchemaValidation"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiBollywoodWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiLiteratureTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiHealthSection"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiCareerWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiJobSection"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiNews18MinisWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiFoodSection"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiNews18HindiPlusCricketWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiArticleBannersTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiArticleUrlValidation"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiDharmWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiSportsTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiVideoWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiAjabGajab"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiSuperhitGallery"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiMobileTechTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AmpHindiHomePageLinks"/> 
+      <class name="com.news18.ampsanitybodyvalidation.AMPHindiPriorityPanelTest"/>-->
+      <!-- AMP Header --> 
+      <class name="com.news18.ampsanityheadervalidation.AMPHindiLineOneSectionValidationTest"/> 
+      <class name="com.news18.ampsanityheadervalidation.AMPHindiHamburgerMenuAllSectionsNavigation"/>
+      
+        
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+

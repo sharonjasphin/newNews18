@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="gujaratiBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="8" parallel="classes" name="Test">
+    <classes>
+    <!--DesktopBody  -->
+    <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiVideoWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiPriorityPanelTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiCareerWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiEyeCatcherWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiDharamBhaktiWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiEntertainmentWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiWebstoriesWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiMobileAndTechWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiSportWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiNationalInternationalWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiSuperhitGalleryWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiBusinessWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiLifeStyleWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopGujaratiGujaratWidgetTest"/>
+      <!--Desktop Footer  -->
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopGujaratiFooterSocialShareSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopGujaratiFooterNews18GroupsitesSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopGujaratiFooterLiveTVValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopGujaratiFooterAboutUsSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopGujaratiFooterBivagSectionValidationTest"/>
+      <!--Desktop Header  -->
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiHomePageChangeLanguageValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiHomePageDownloadApp"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiHomePageLiveTv"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiLineTwoValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiHeaderSocialShareValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiLineOneHamburgerMenuValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiLineOneChooseYourDistrictValidation"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiLineOneSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopGujaratiHomePageTrendingTopicsTest"/>
+      <!--Desktop RHS  -->
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopGujaratiLiveNow"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopGujaratiSuperHitBox"/>
+      
+      <!--MobileBody -->
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiEyeCatcherWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiPriorityPanelTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiCitiesArticlesNavigationTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiEntertainmentWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiWebstoriesWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiNationalInternationalWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiPhotosWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiSportWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiMobileAndTechWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiVideoWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiDharamBhaktiWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiCareerWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiBusinessWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileGujaratiLifeStyleWidgetTest"/>
+      <!--MobileHeader  -->
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileGujaratiLineOneSectionValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileGujaratiHamburgerLanguage"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileGujaratiHeaderLogoValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileGujaratiHeaderDistrictValidationTest"/>
+      <!--MobileFooter  -->
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileGujaratiFooterFollowUsTest"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

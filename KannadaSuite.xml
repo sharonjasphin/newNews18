@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/kannada/KannadaAds.xml"/>
+	<suite-file path="/kannada/KannadaAMPValidation.xml"/>
+	<suite-file path="/kannada/KannadaGaAndComscore.xml"/>
+	<suite-file path="/kannada/KannadaImageValidation.xml"/>
+	<suite-file path="/kannada/KannadaIzooto.xml"/>
+	<suite-file path="/kannada/KannadaLatestSectionTimeValidation.xml"/>
+	<suite-file path="/kannada/KannadaHomePageLinkValidation.xml"/>
+	<!-- <suite-file path="/kannada/KannadaMetaTagRobot.xml"/> -->
+	<suite-file path="/kannada/KannadaMetaTagContent.xml"/>
+	<suite-file path="/kannada/KannadaOutbrain.xml"/>
+	<suite-file path="/kannada/KannadaSocialShareIconValidation.xml"/>
+	<suite-file path="/kannada/KannadaSchemaValidation.xml"/>
+</suite-files>
+</suite> <!-- Suite -->

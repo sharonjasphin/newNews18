@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/tamil/TamilAds.xml"/>
+	<suite-file path="/tamil/TamilAMPValidation.xml"/>
+	<suite-file path="/tamil/TamilGaAndComscore.xml"/>
+	<suite-file path="/tamil/TamilHomePageLinkValidation.xml"/>
+	<suite-file path="/tamil/TamilImageValidation.xml"/>
+	<suite-file path="/tamil/TamilIzooto.xml"/>
+	<suite-file path="/tamil/TamilLatestSectionTimeValidation.xml"/>
+	<!-- <suite-file path="/tamil/TamilMetaTagRobot.xml"/> -->
+	<suite-file path="/tamil/TamilOutbrain.xml"/>
+	<suite-file path="/tamil/TamilSchemaValidation.xml "/>
+    <suite-file path="/tamil/TamilSocialShareIconValidation.xml"/>
+
+</suite-files>
+</suite> <!-- Suite -->

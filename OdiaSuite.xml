@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/odia/OdiaAds.xml"/>
+	<suite-file path="/odia/OdiaAMPValidation.xml"/>
+	<suite-file path="/odia/OdiaGAComScore.xml"/>
+	<suite-file path="/odia/OdiaImageValidation.xml"/>
+	<suite-file path="/odia/OdiaIzooto.xml"/>
+	<suite-file path="/odia/OdiaLatestSection.xml"/>
+	<suite-file path="/odia/OdiaLinksValidation.xml"/>
+	<!-- <suite-file path="/odia/OdiaMetaRobots.xml"/> -->
+	<suite-file path="/odia/OdiaMetaTagContent.xml"/>
+	<suite-file path="/odia/OdiaOutbrain.xml"/>
+	<suite-file path="/odia/OdiaSocialShareLnks.xml"/>
+	<suite-file path="/odia/OdiaStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/urdu/UrduAds.xml"/>
+	<suite-file path="/urdu/UrduAmpValidation.xml"/>
+	<!-- <suite-file path="/urdu/UrduGAComscore.xml"/> -->
+	<suite-file path="/urdu/UrduImageValidation.xml"/>
+	<suite-file path="/urdu/UrduIzooto.xml"/>
+	<suite-file path="/urdu/UrduLatestSection.xml"/>
+	<suite-file path="/urdu/UrduLinksValidation.xml"/>
+	<!-- <suite-file path="/urdu/UrduMetaRobots.xml"/> -->
+	<suite-file path="/urdu/UrduMetaTagContent.xml"/>
+	<suite-file path="/urdu/UrduOutbrain.xml"/>
+	<suite-file path="/urdu/UrduSocialShare.xml"/>
+	<suite-file path="/urdu/UrduStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->
+

@@ -1,0 +1,31 @@
+package com.news18.homepagelinksvalidation;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import com.news18.init.MobileCommonConfig;
+
+/**
+ * @author DanishR
+ * This class validate URLs present on the Mobile Lokmat HomePage 
+ */
+public class MobileLokmatHomePageLinks extends MobileCommonConfig {
+
+	/**
+	 * This method is used to navigate to Lokmat News18 Home Page URL which is fetching from Property File
+	 * URL-https://lokmat.news18.com/
+	 */
+//	@BeforeMethod
+	public void navigateToLokmatHomePageURL() {
+		navigateToUrl(fileUtility.readDataFromPropertyFile("lokmatUrl"));
+	}
+
+
+	/**
+	 * This method is used to validate Home Page Urls
+	 */
+	@Test
+	public void lokmatHomePage() throws Throwable {
+		pages.homePageLinksValidation.verifyAllLinksOnMobileHomepage();
+	}
+}
+

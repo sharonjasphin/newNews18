@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/gujarati/GujaratiAds.xml"/>
+	<suite-file path="/gujarati/GujaratiAMPValidation.xml"/>
+	<suite-file path="/gujarati/GujaratiGAComScore.xml"/>
+	<suite-file path="/gujarati/GujaratiImageValidation.xml"/>
+	<suite-file path="/gujarati/GujaratiIzooto.xml"/>
+	<suite-file path="/gujarati/GujaratiLatestSection.xml"/>
+	<suite-file path="/gujarati/GujaratiLinkValidation.xml"/>
+	<!-- <suite-file path="/gujarati/GujaratiMetaRobot.xml"/> -->
+	<suite-file path="/gujarati/GujaratiMetaTagContent.xml"/>
+	<suite-file path="/gujarati/GujaratiOutbrain.xml"/>
+	<suite-file path="/gujarati/GujaratiSocialShare.xml"/>
+	<suite-file path="/gujarati/GujaratiStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->
+

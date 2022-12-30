@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="classes" name="Suite">
+<listeners>  
+<listener class-name="com.news18.init.ListenerUtility"/>  
+</listeners>
+  <test name="Test">
+  
+    <classes>
+    
+    <class name="com.news18.homepagelinksvalidation.MobileOdiaHomePageLinks"/>
+     <class name="com.news18.homepagelinksvalidation.DesktopOdiaHomePageLinks"/> 
+      <class name="com.news18.ampvalidation.AMPOdiaValidationsTest"/>
+      <class name="com.news18.gacomscore.DesktopOdiaGaAndComscoreValidation"/>
+      <class name="com.news18.outbrainvalidation.DesktopOdiaOutbrainTest"/>
+      <class name="com.news18.metatagrobots.DesktopOdiaMetaTag"/>
+      <class name="com.news18.metatagrobots.MobileOdiaMetaTag"/> 
+      <class name="com.news18.gacomscore.AMPOdiaGaAndComscoreValidation"/>
+      <class name="com.news18.outbrainvalidation.MobileOdiaOutbrainTest"/> 
+      <class name="com.news18.gacomscore.MobileOdiaGaAndComscoreValidation"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="engBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="8" parallel="classes" name="Test">
+    <classes>
+    <!--DesktopBody  -->
+    <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHealthAndFitnessWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHomePageVideoWallWidget"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishPriorityPanelTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishVideoWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHomePageMoviesWidget"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishFootballWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishTechWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHotAndTrendingWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishWebStoriesWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishOpinionWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHomePageCricketNextWidget"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishPhotogalleryWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishExplainersWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishLifestyleWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishAutoWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishCricketNextWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHomePageHoroscopeWidget"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishNews18ShowshaWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishBuzzWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishPoliticsWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishSportsWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHomePageIndiaWidget"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishHomePageBusinessWidget"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishWorldWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopEnglishEducationAndCareerWidgetTest"/>
+      <!--Desktop Footer  -->
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopEnglishFooterHotOnSocialSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopEnglishFooterPopularCategorySectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopEnglishFooterLanguageSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopEnglishFooterLineTwoSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopEnglishFooterNetwork18SitesSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopEnglishFooterTrendingSectionValidationTest"/>
+      <!--Desktop Header  -->
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishLineOneSectionArticleValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishHomePageSocialShare"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishHomePageChangeLanguage"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishLineOneHamburgerMenuValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishLineOneSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishHomePageDownloadApp"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishHomePageLiveTv"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishLineTwoValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopEnglishHomePageTrendingTopics"/>
+      <!--Desktop RHS  -->
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopEnglishLatestNewsSection"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopEnglishTodaysPanchang"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopEnglishLiveTV"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopEnglishAirQualityIndex"/>
+      
+      <!--MobileBody -->
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHomePageCricketNextWidget"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishNews18ShowshaWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishWebstoriesWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishAutoWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishBuzzWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishTopStoriesWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishAirQualityIndex"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishLiveTv"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishPriorityPanelTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishFootballWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishVideosWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHealthAndFitnessWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishLatestNews"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishSportsWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHomePageHoroscopeWidget"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishPoliticsWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishTechWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHomePageBusinessWidget"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishWorldWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishCricketNextWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHotAndTrendingWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHomePageIndiaWidget"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishExplainersWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishLifestyleWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHomePageVideoWallWidget"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishOpinionWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishHomePageMoviesWidget"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishEducationAndCareerWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileEnglishPhotogalleryWidgetTest"/>
+      <!--MobileHeader  -->
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerNW18InitiativesValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerSectionValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerSocialShareValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHomePageGoogleSearch"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerHeaderValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerInTrendsValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHomePageLogo"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishLineOneSectionValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerLanguageSectionValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerGroupSitesValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHamburgerKnowUsValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileEnglishHomePageTracker"/>
+      <!--MobileFooter  -->
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterPopularCategoryValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterNw18GroupSitesValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterFollowUsAndDownloadAppValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterHotOnSocialValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterTrendingTopicValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterLastLayerValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileEnglishFooterLanguageSitesValidationTest"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

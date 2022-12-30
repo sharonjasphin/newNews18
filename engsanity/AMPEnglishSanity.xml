@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="engAmpBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="8" parallel="classes" name="Test">
+  
+    <classes>
+      <!--AMP Body  -->
+      
+	  <class name="com.news18.ampsanitybodyvalidation.AMPEnglishWorldWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishExplainersWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHomePageVideoWallWidget"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishPhotogalleryWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHomePageIndiaWidget"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHealthAndFitnessWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishOpinionWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishCricketNextWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishLifestyleWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishSportsWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHomePageCricketNextWidget"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHomePageBusinessWidget"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHomePageMoviesWidget"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishNews18ShowshaWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishHotAndTrendingWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishAutoWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishBuzzWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AmpEnglishHomePageLinks"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishFootballWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishPriorityPanelTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishEducationAndCareerWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishPoliticsWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishTechWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishWebstoriesWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishVideosWidgetTest"/>
+      <class name="com.news18.ampsanitybodyvalidation.AMPEnglishValidationTest"/>	
+      
+      <!-- AMP Header --> 
+      
+      <class name="com.news18.ampsanityheadervalidation.AMPEnglishHamburgerInTrendsValidationTest"/>
+      <class name="com.news18.ampsanityheadervalidation.AMPEnglishLineOneSectionValidationTest"/>
+      <class name="com.news18.ampsanityheadervalidation.AMPEnglishHamburgerSectionValidationTest"/>
+        
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

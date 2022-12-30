@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/hindi/HindiAds.xml"/>
+	<suite-file path="/hindi/HindiAMPValidation.xml"/>
+	<suite-file path="/hindi/HindiGAComScore.xml"/>
+	<suite-file path="/hindi/HindiImageValidation.xml"/>
+	<suite-file path="/hindi/HindiIzooto.xml"/>
+	<suite-file path="/hindi/HindiLatestSection.xml"/>
+	<suite-file path="/hindi/HindiLinkValidation.xml"/>
+	<!-- <suite-file path="/hindi/HindiMetaRobot.xml"/> -->
+	<suite-file path="/hindi/HindiMetaTagContent.xml"/>
+	<suite-file path="/hindi/HindiOutbrain.xml"/>
+	<suite-file path="/hindi/HindiSocialShare.xml"/>
+	<suite-file path="/hindi/HindiStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->
+

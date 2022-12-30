@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<parameter name="url" value="gujaratiBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="5" parallel="classes" name="Test">
+    <classes>
+    
+    
+    
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiPriorityPanelTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiVideoWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiHomePageLinks"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiLifestyleWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiLiveBlogTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiEntertainmentWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiGujaratWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiSportWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiDharmBhakti"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiMobileAndTechWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiPhotosWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiEyeCatcherWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiBusinessWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiNewStack"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiNationalInternationalWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiCareerWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiWebstoriesWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileGujaratiInfiniteScroll"/>
+      
+      
+      <class name="com.news18.mobilesanityheadervalidation.MobileGujaratiHamburgerLanguage"/>
+      <class name="com.news18.mobilesanityheadervalidation.MobileGujaratiLineOneSectionValidationTest"/>
+       
+       
+    </classes>
+  </test> <!-- Test -->
+  
+  
+</suite> <!-- Suite -->

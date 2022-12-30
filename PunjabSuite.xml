@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/punjab/PunjabAds.xml"/>
+	<suite-file path="/punjab/PunjabAMPValidation.xml"/>
+	<suite-file path="/punjab/PunjabGaAndComscore.xml"/>
+	<suite-file path="/punjab/PunjabHomePageLinkValidation.xml"/>
+	<suite-file path="/punjab/PunjabImageValidation.xml"/>
+	<suite-file path="/punjab/PunjabIzooto.xml"/>
+	<suite-file path="/punjab/PunjabLatestSectionTimeValidation.xml"/>
+	<!-- <suite-file path="/punjab/PunjabMetaTagRobot.xml"/> -->
+	<suite-file path="/punjab/PunjabOutbrain.xml"/>
+	<suite-file path="/punjab/PunjabSchemaValidation.xml "/>
+    <suite-file path="/punjab/PunjabSocialShareIconValidation.xml"/>
+
+</suite-files>
+</suite> <!-- Suite -->

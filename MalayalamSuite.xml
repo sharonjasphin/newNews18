@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/malayalam/MalayalamAds.xml"/>
+	<suite-file path="/malayalam/MalayalamAMPValidation.xml"/>
+	<suite-file path="/malayalam/MalayalamGAComscore.xml"/>
+	<suite-file path="/malayalam/MalayalamImageValidation.xml"/>
+	<suite-file path="/malayalam/MalayalamIzooto.xml"/>
+	<suite-file path="/malayalam/MalayalamLatestSection.xml"/>
+	<suite-file path="/malayalam/MalayalamLinksValidation.xml"/>
+	<!-- <suite-file path="/malayalam/MalayalamMetaRobots.xml"/> -->
+	<suite-file path="/malayalam/MalayalamMetaTagContent.xml"/>
+	<suite-file path="/malayalam/MalayalamOutbrain.xml"/>
+	<suite-file path="/malayalam/MalayalamSocialShare.xml"/>
+	<suite-file path="/malayalam/MalayalamStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->

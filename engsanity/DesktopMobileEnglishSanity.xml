@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+	<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="engBeta" />
+	<parameter name="server" value="preProd" />
+	<test thread-count="8" parallel="classes" name="Test">
+		<classes>
+		
+	<!--Desktop Body   -->
+	
+	<class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHomePageMoviesWidget"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishPoliticsWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHomePageBusinessWidget"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishTopicsLinks"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHomePageVideoWallWidget"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHotAndTrendingWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishWebStoriesWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishAutoWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishBuzzWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishEducationAndCareerWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishPhotogalleryWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHealthAndFitnessWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishOpinionWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishExplainersWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishTechWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishNews18ShowshaWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishPriorityPanel"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHomePageCricketNextWidget"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishCricketNextWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHomePageIndiaWidget"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishLifestyleWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishSportsWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishHomePageLinks"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishVideoWidgetTest"/>
+      <class name="com.news18.desktopsanitybodyvalidation.DesktopEnglishFootballWidgetTest"/>
+      
+      <!--Desktop Header  -->
+      
+      <class name="com.news18.desktopsanityheadervalidation.DesktopEnglishLineOneHambergurMenu"/>
+      <class name="com.news18.desktopsanityheadervalidation.DesktopEnglishLineOneSearchIcon"/>
+      <class name="com.news18.desktopsanityheadervalidation.DesktopEnglishLineOneSection"/>
+      <class name="com.news18.desktopsanityheadervalidation.DesktopEnglishLineTwoSection"/>
+
+		<!--Mobile Body  -->
+		
+	  <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishWorldWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishLifestyleWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishWebstoriesWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishVideosWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishOpinionWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishPhotogalleryWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishEducationAndCareerWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHomePageVideoWallWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHomePageLinks"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishNews18ShowshaWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishCricketNextWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishSportsWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishTechWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHealthAndFitnessWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishPoliticsWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHotAndTrendingWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishPriorityPanelTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHomePageBusinessWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHomePageCricketNextWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishExplainersWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishFootballWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishBuzzWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHomePageMoviesWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishAutoWidgetTest"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishHomePageIndiaWidget"/>
+      <class name="com.news18.mobilesanitybodyvalidation.MobileEnglishTopicsLinks"/>
+      
+      <!--Mobile Header  -->
+      
+      <class name="com.news18.mobilesanityheadervalidation.MobileEnglishHamburgerSectionValidationTest"/>
+      <class name="com.news18.mobilesanityheadervalidation.MobileEnglishLineOneSectionValidationTest"/>
+      <class name="com.news18.mobilesanityheadervalidation.MobileEnglishHamburgerInTrendsValidationTest"/>
+      <class name="com.news18.mobilesanityheadervalidation.MobileEnglishHamburgerHeaderValidationTest"/>
+     
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="kannadaBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="8" parallel="classes" name="Test">
+		<classes>
+			<!-- Desktop Header -->
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaHomePageLiveTv" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaHomePageDownloadApp" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaLineTwoValidationTest" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaHomePageChangeLanguage" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaHomePageSocialShare" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaLineOneChooseYourDistrictValidationTest" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaLineOneHamburgerMenuValidationTest" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaHomePageTrendingTopics" />
+			<class name="com.news18.desktopregressionhomepageheadervalidation.DesktopKannadaLineOneSectionValidationTest" />
+
+			<!-- Desktop Body-->
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaTrendWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaTopNewsWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaEntertainmentWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaMobileAndTechWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaLifeStyleWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaNationalInternationalWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaPhotoWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaStateWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaPriorityPanelTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaLiveTv" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaPromotedContentWidgetTest"/>
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaTopStoriesWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaWebstoriesWidgetTest" />
+			<class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopKannadaSectionWidgetTest" />
+
+			<!-- Desktop RHS-->
+
+			<class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopKannadaPhotoSectionRhs" />
+
+			<!-- Desktop Footer-->
+
+			<class name="com.news18.desktopregressionhomepagefootervalidation.DesktopKannadaFooterBivagSectionValidationTest" />
+			<class name="com.news18.desktopregressionhomepagefootervalidation.DesktopKannadaFooterLiveTVValidationTest" />
+			<class name="com.news18.desktopregressionhomepagefootervalidation.DesktopKannadaFooterLatestNewsSectionValidationTest" />
+			<class name="com.news18.desktopregressionhomepagefootervalidation.DesktopKannadaFooterSocialShareSectionValidationTest" />
+			<class name="com.news18.desktopregressionhomepagefootervalidation.DesktopKannadaFooterNews18GroupsitesSectionValidationTest" />
+			<class name="com.news18.desktopregressionhomepagefootervalidation.DesktopKannadaFooterAboutUsSectionValidationTest" />
+
+			<!-- Mobile Body -->
+
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaLiveTv" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaSportWidgetTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaLifeStyleWidgetTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaMobileAndTechWidgetTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaPhotoSection" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaNationalInternationalWidgetTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaWebstoriesWidgetTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaCitiesArticlesNavigationTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaEntertainmentWidgetTest" />
+			<class name="com.news18.mobileregressionhomepagebodyvalidation.MobileKannadaPriorityPanelWidgetTest" />
+
+			<!-- Mobile Footer-->
+
+			<class name="com.news18.mobileregressionhomepagefootervalidation.MobileKannadaFooterStickySectionValidationTest" />
+			<class name="com.news18.mobileregressionhomepagefootervalidation.MobileKannadaFooterFollowUsTest" />
+
+			<!-- Mobile Header -->
+
+			<class name="com.news18.mobileregressionhomepageheadervalidation.MobileKannadaLineOneSectionValidationTest" />
+			<class name="com.news18.mobileregressionhomepageheadervalidation.MobileKannadaHamburgerSectionValidationTest" />
+			<class name="com.news18.mobileregressionhomepageheadervalidation.MobileKannadaHeaderDistrictValidationTest" />
+			<class name="com.news18.mobileregressionhomepageheadervalidation.MobileKannadaHeaderLogoValidationTest" />
+			<class name="com.news18.mobileregressionhomepageheadervalidation.MobileKannadaHamburgerLanguageSectionValidationTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

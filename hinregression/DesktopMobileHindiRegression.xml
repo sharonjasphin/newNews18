@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="Suite">
+<listeners>
+		<listener class-name="com.news18.init.ListenerUtility" />
+	</listeners>
+	<parameter name="url" value="hinBeta" />
+	<parameter name="server" value="preProd" />
+  <test thread-count="8" parallel="classes" name="Test">
+    <classes>
+    <!--DesktopBody  -->
+    <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiBlogWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiLifeWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiNews18HindiPlusWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiMobileFinderWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiWorldWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiCrimeWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiPradeshStateWiseArticles"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiNews18MinisWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiBodyKhelWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiPriorityPanelTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiAjabGajabWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiCricketWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiCareerWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiFooterSportWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiWebstoriesWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiMoneyWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiPradeshNewsTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiPradeshCityNamesTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiKnowledgeWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiLiteratureWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiMobileTechWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiBollywoodWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiDharmWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiNationWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiPhotoWidgetTest"/>
+      <class name="com.news18.desktopregressionhomepagebodyvalidation.DesktopHindiVideoWidgetTest"/>
+      <!--DesktopFooter  -->
+       <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterSocialSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterLanguageSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterLiveTVSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterLineTwoSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterTrendingSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterLineTwoSocialSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterPopularCategorySectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepagefootervalidation.DesktopHindiFooterNetwork18SitesSectionValidationTest"/>
+       <!--DesktopHeader  -->
+        <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiHomePageTrendingTopics"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiHomePageChangeLanguage"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiLineOneSectionValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiHomePageSocialShare"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiHomePageDownloadApp"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiHomePageLiveTv"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiLineOneSectionRajyaSeherChuneValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiLineOneSectionArticleValidationTest"/>
+      <class name="com.news18.desktopregressionhomepageheadervalidation.DesktopHindiLineTwoValidationTest"/>
+        <!--DesktopRhs  -->
+         <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiTodaysPanchang"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiHealthAndFitness"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiJob"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiAuto"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiFoodSection"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiAirQualityIndex"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiCartoon"/>
+      <class name="com.news18.desktopregressionhomepagerhsvalidation.DesktopHindiCricketKaTest"/>
+      <!--MobileBody  -->
+       <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiCareerWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiTodaysPanchang"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiCricketWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiPradeshNewsTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiMobileFinderWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiCrimeWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiMoneyWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiWebstoriesWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiHoroscopeWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiBlogWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiSahityaWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiArticleBannerTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiCricketKaTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiJobSection"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiKnowledgeWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiLifeWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiNews18MinisWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiWorldWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiCartoonSection"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiNationWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiAutoSection"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiPradeshStateWiseArticles"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiNews18HindiPlusWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiHealthAndFitnessTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiMobileTech"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiAirQualityIndex"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiDharmWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiBodyKhelWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiBollywoodTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiFoodSectionTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiSuperHitGallery"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiPriorityPanelTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiVideoWidgetTest"/>
+      <class name="com.news18.mobileregressionhomepagebodyvalidation.MobileHindiAjabGajabWidgetTest"/>
+      <!--MobileFooter  -->
+       <class name="com.news18.mobileregressionhomepagefootervalidation.MobileHindiFooterFollowUsAndDownloadAppValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileHindiFooterPopularCategoryValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileHindiFooterSocialMediaPopularValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileHindiFooterTrendingTopicValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileHindiFooterLastLayerValidationTest"/>
+      <class name="com.news18.mobileregressionhomepagefootervalidation.MobileHindiFooterLanguageSitesValidationTest"/>
+      <!--MobileHeader  -->
+       <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuSectionsNavigation"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuPhoto"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuPradesh"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuCityListValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuAuto"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuManorajan"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuMobileTech"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuDuniya"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerLanguageSectionValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuLifeStyle"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiHamburgerMenuVideo"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiLineOneSectionRajyaSeherChuneValidationTest"/>
+      <class name="com.news18.mobileregressionhomepageheadervalidation.MobileHindiLineOneSectionValidationTest"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

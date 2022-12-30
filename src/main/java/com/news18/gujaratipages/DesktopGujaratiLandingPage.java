@@ -1,0 +1,2885 @@
+package com.news18.gujaratipages;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.SkipException;
+import org.testng.asserts.SoftAssert;
+
+import com.news18.commonpages.HomePageLinksValidation;
+import com.news18.init.FileUtility;
+import com.news18.init.GenericUtility;
+import com.news18.init.GlobalVariables;
+import com.news18.init.Logs;
+import com.news18.init.WebDriverActions;
+
+/**
+ * @author Abhishek Raj
+ *This Class Contains elements and business logics for Bengali Desktop Landing  Page
+ */
+public class DesktopGujaratiLandingPage {
+
+	public WebDriver driver;
+	WebDriverActions webDriverActions = new WebDriverActions();
+	GenericUtility genericUtility= new GenericUtility();
+	FileUtility fileUtility = new FileUtility();
+	SoftAssert softAssert = new SoftAssert();
+
+	public  DesktopGujaratiLandingPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	/*Homepage First article Link  is present below the Line Two Menu bar in RHS*/
+	@FindBy(xpath ="//div[contains(@class,'topnews-right')]//ul//li//a[not(contains(@href,'live')) and not(contains(@href,'/photogallery/'))]")
+	private List<WebElement> homePageArticleLnk;
+
+	/*Videos link present after clicking on Hamburger menu*/
+	@FindBy(xpath ="//div[contains(@class,'sub-nav')]//li//a[text()='Videos']")
+	private WebElement videosLnk;
+
+	/*Homepage LiveBlog article Link  is present below the Line Two Tag  Menu in RHS*/
+	@FindBy(xpath ="//div[contains(@id,'__next')]//a[contains(@title,'Live')]")
+	private List<WebElement> homePageLiveBlogArticleLnk;
+
+	/*photo section Present in LineOne navigation bar */
+	@FindBy(xpath="//ul[contains(@class,'nav_bar')]//a[@href='/photogallery/']")
+	private WebElement photoSectionLineOneLnk;
+
+	/*Sports link present after clicking on line two*/
+	@FindBy(xpath ="//div[contains(@class,'Menu_sub_navigation')]//ul//a[text()='ખેલ']")
+	private WebElement sportsSectionLnk;
+
+	/*Section link present at line one section*/
+	@FindBy(xpath ="//div[contains(@class,'nav_wapper')]//ul[contains(@class,'nav_bar')]//a[not(contains(@href,'/videos/')) and not(contains(@href,'/photogallery/'))]")
+	private List<WebElement> sectionLnks;
+
+
+	/*video link present at line one section*/
+	@FindBy(xpath ="//div[contains(@class,'Menu_container')]//a[text()='VIDEOS']")
+	private WebElement videoSectionLnk;
+
+	/*Trending Topic link present at header section*/
+	@FindBy(xpath ="//div[contains(@class,'nhtranding')]//a")
+	private List<WebElement> trendingTopicsLnk;
+
+	/*Homepage LiveBlog article Link  is present below the LineTwo Tag  Menu in RHS*/
+	@FindBy(xpath ="//div[contains(@class,'Home_clearfix')]//a[contains(@title,'Live news')]")
+	private List<WebElement> homePageLiveBlogArticleLnks;
+
+	/*Latest Section in line one navigation bar*/
+	@FindBy(xpath="//div[contains(@class,'nhtranding')]//a[contains(@href,'/news/')]")
+	private WebElement latestSectionLnk;
+
+
+	//	**********************Anupam**WebElements**********************
+
+	///------------video
+	/* Video section present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'video-gallery')]//a[(@href='/videos/')]")
+	private WebElement videoBodySectionLnk;
+
+	/* Video section article present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'video-gallery')]//li/a")
+	private List<WebElement> videoSectionArticleLnk;
+
+	/* Video section Image present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'video-gallery')]//li//img")
+	private List<WebElement> videoSectionImgLnk;
+
+	/*Breadcrumb present in article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')] | //div[contains(@class,'breadcrumb')]")
+	private WebElement videoBreadcrumb;
+
+
+	//---------lifestyle
+	/* Lifestyle section present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/lifestyle/')]")
+	private WebElement lifestyleSectionLnk;
+
+	/* Lifestyle section article present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/lifestyle/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> lifestyleSectionArticleLnk;
+
+	/* Lifestyle section Image present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/lifestyle/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> lifestyleSectionImgLnk;
+
+	/* Lifestyle section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/lifestyle/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreLifestyleSectionLnk;
+
+	/*Breadcrumb present in Lifestyle article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement lifestyleBreadcrumb;
+
+	//---------sport
+	/* Sport section present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/sport/')]")
+	private WebElement sportSectionLnk;
+
+	/*Sport section Article present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/sport/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> sportSectionArticleLnk;
+
+	/* Sport section Image present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/sport/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> sportSectionImgLnk;
+
+	/* Sport section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/sport/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreSportSectionLnk;
+
+	/*Breadcrumb present in sport article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] |  //div[contains(@class,'brdcrm')]")
+	private WebElement sportBreadcrumb;
+
+	//---------EyeCatcher
+	/* EyeCatcher section present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/eye-catcher/')]")
+	private WebElement eyeCatcherSectionLnk;
+
+	/*EyeCatcher section Article present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/eye-catcher/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> eyeCatcherSectionArticleLnk;
+
+	/* EyeCatcher section Image present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/eye-catcher/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> eyeCatcherSectionImgLnk;
+
+	/* EyeCatcher section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/eye-catcher/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreEyeCatcherSectionLnk;
+
+	/*Breadcrumb present in EyeCatcher article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement eyeCatcherBreadcrumb;
+
+	//---------MobileAndTech
+	/* MobileAndTech section present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/tech/')]")
+	private WebElement mobileAndTechSectionLnk;
+
+	/*MobileAndTech section Article present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/tech/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> mobileAndTechSectionArticleLnk;
+
+	/*MobileAndTech section Image present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/tech/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> mobileAndTechSectionImgLnk;
+
+	/*MobileAndTech section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/tech/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreMobileAndTechSectionLnk;
+
+	/*Breadcrumb present in MobileAndTech article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement mobileAndTechBreadcrumb;
+
+	//---------Entertainment
+	/* Entertainment section present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/entertainment/')]")
+	private WebElement entertainmentSectionLnk;
+
+	/*Entertainment section Article present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/entertainment/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> entertainmentSectionArticleLnk;
+
+	/*Entertainment section Image present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/entertainment/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> entertainmentSectionImgLnk;
+
+	/*Entertainment section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/entertainment/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreEntertainmentSectionLnk;
+
+	/*Entertainment present in MobileAndTech article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement entertainmentBreadcrumb;
+
+	//---------national-international
+	/* national-international section present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/national-international/')]")
+	private WebElement nationalInternationalSectionLnk;
+
+	/*national-international section Article present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/national-international/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> nationalInternationalArticleLnk;
+
+	/*national-international section Image present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/national-international/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> nationalInternationalImgLnk;
+
+	/*national-international section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'section-box')]/div[contains(@class,'globalhd large')]//a[(@href='/national-international/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreNationalInternationalLnk;
+
+	/*national-international present in MobileAndTech article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement nationalInternationalBreadcrumb;
+
+	//---------career
+	/* Career section present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/career/')]")
+	private WebElement careerSectionLnk;
+
+	/* Career section article present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/career/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> careerSectionArticleLnk;
+
+	/* Career section Image present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/career/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> careerSectionImgLnk;
+
+	/* Career section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/career/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreCareerSectionLnk;
+
+	/*Breadcrumb present in Career article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement careerBreadcrumb;
+
+
+	//---------Business
+	/* Business section present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/business/')]")
+	private WebElement businessSectionLnk;
+
+	/* Business section article present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/business/')]//ancestor::div[contains(@class,'section-box')]/ul/li/a")
+	private List<WebElement> businessSectionArticleLnk;
+
+	/* Business section Image present in homepage*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/business/')]//ancestor::div[contains(@class,'section-box')]/ul//figure//img")
+	private List<WebElement> businessSectionImgLnk;
+
+	/* Business section ReadMore present in homepage at bottom*/
+	@FindBy(xpath ="//div[contains(@class,'globalhd large')]//a[(@href='/business/')]//ancestor::div[contains(@class,'section-box')]/a")
+	private WebElement readMoreBusinessSectionLnk;
+
+	/*Breadcrumb present in Business article page*/
+	@FindBy(xpath ="//div[contains(@class,'breadcum')] |  //div[contains(@class,'brade_crum')] | //div[contains(@class,'brdcrm')]")
+	private WebElement businessBreadcrumb;
+
+
+	//------------------------------- Vipins Webelement -----------------------------------//
+
+	/* Article Header Text in Article Consumption Page */
+	@FindBy(xpath ="//h1[contains(@class,'article_heading') or contains(@class,'live_blog') or contains(@class,'gallery_tilte')] | //div[contains(@class,'art') or contains(@class,'TstoryHead')]/h1" )
+	private WebElement articleHeaderTxt;
+
+	/* Article BreadCrumb Division */
+	@FindBy(xpath = "//div[contains(@class,'brd')] | //div[contains(@class,'bread')]  | //ul[contains(@class, 'bread')]")
+	private WebElement articleBreadCrumbDiv;
+
+	/*Priority Panel Article Links in Homepage*/
+	@FindBy(xpath = "//div[contains(@class,'bigstory')]/parent::div[contains(@class,'wapper')]/div[contains(@class,'bigstory') or @class='container']//a")
+	private List<WebElement> priorityPanelArticleLnk;
+
+	/*Priority Panel Image Links in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'bigstory')]/parent::div[contains(@class,'wapper')]/div[contains(@class,'bigstory') or @class='container']//a//img[@title]")
+	private List<WebElement> priorityPanelImgLnk;
+
+	/* DharamBhakti Article Links in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'globalhd')]//a[contains(@href,'dharm')]//ancestor::div[contains(@class,'globalhd')]/following-sibling::div[1]//a")
+	private List<WebElement> dharamBhaktiArticleLnk;
+
+	/*DharamBhakti Image Links in Homepage*/
+	@FindBy(xpath = "//a[contains(@href,'dharm')]//ancestor::div[contains(@class,'globalhd')]/following-sibling::div[1]//a//img")
+	private List<WebElement> dharamBhaktiImgLnk;
+
+	/*DharamBhakti Read More Link in Homepage */
+	@FindBy(xpath = "//a[contains(@href,'dharm')]//ancestor::div[contains(@class,'globalhd')]/following-sibling::a[1]")
+	private WebElement dharamBhaktiReadMoreLnk;
+
+	/* Webstories Section  Title Link in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'web_stories')]//h2/a")
+	private WebElement webstoriesTitleLnk;
+
+	/* List of Webstrories Article Link in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'web_stories')]/div[contains(@class,'gallery_details')]//div[@class='slick-list']//div[contains(@class,'slick-slide') and not (contains(@class,'slick-cloned'))]//a")
+	private List<WebElement> webstoriesArticleLnk;
+
+	/* List of Webstrories Image Link in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'web_stories')]/div[contains(@class,'gallery_details')]//div[@class='slick-list']//div[contains(@class,'slick-slide') and not (contains(@class,'slick-cloned'))]//a//img")
+	private List<WebElement> webstoriesImgLnk;
+
+	/* Active Webstories Article Link in Webstories Section in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'web_stories')]/div[contains(@class,'gallery_details')]//div[@class='slick-list']//div[contains(@class,'current') and not (contains(@class,'slick-cloned'))]//a")
+	private WebElement activeWebstoriesArticleLnk;
+
+	/* Active Webstories Image Link in Webstories Section in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'web_stories')]/div[contains(@class,'gallery_details')]//div[@class='slick-list']//div[contains(@class,'current') and not (contains(@class,'slick-cloned'))]//a//img")
+	private WebElement activeWebstoriesImgLnk;
+
+	/* WebStories Next Story Button after navigation of WebStories Article */
+	@FindBy(xpath = "//div[contains(@class,'next-container')]")
+	private WebElement nextWebStoryBtn;
+
+	/* Webstories Slider Button in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'web_stories')]//ul[contains(@class,'slick-dots')]/li[not (contains(@class,'active'))]/button")
+	private List<WebElement> webstoriesSliderBtn;
+
+	//		*******************Danish**Webelements*********************
+
+	/*Gujarat Section Title Link in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'global')]/h2/a[contains(@href,'/news/gujarat/')]")
+	private WebElement gujaratSectionTitleLnk;
+
+	/* Gujarat Section Cities Name in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'citiesname')]//ul/li/a")
+	private List<WebElement> gujaratSectionCitiesName;
+
+	/*Gujarat Section Article Link in Homepage*/
+	@FindBy(xpath = "//div[contains(@class,'pradesh-newswrap')]/ul//li//a")
+	private List<WebElement> gujaratSectionArticleLnk;
+
+	/*Gujarat Section Previous Slider Button in Homepage*/
+	@FindBy(xpath = "//div[contains(@class,'citiesname')]/div[contains(@class,'contorls')]/button[@data-glide-dir='<']")
+	private WebElement gujaratSectionPreviousBtn;
+
+	/*Gujarat Section Next Slider Button in Homepage*/
+	@FindBy(xpath = "//div[contains(@class,'citiesname')]/div[contains(@class,'contorls')]/button[@data-glide-dir='>']")
+	private WebElement gujaratSectionNextBtn;
+
+	/* Active Gujarat Section City Name in Homepage*/
+	@FindBy(xpath = "//div[contains(@class,'citiesname')]/div/ul/li[contains(@class,'active')]/a")
+	private WebElement activeGujaratCityName;
+
+	/*Gujarat Section Read More Link in Homeoage*/
+	@FindBy(xpath = "//div[contains(@class,'pradesh-newswrap')]/parent::div/a")
+	private WebElement gujaratSectionReadMoreLnk;
+
+	/*Superhit Gallery Article Link in Homepage*/
+	@FindBy(xpath = "//ul[contains(@class,'superhitgalley')]/li/a")
+	private List<WebElement> superhitGalleryArticleLnk;
+
+	/*Superhit Gallery Image Link in Homepage*/
+	@FindBy(xpath = "//ul[contains(@class,'superhitgalley')]/li/a//img")
+	private List<WebElement> superhitGalleryImgLnk;
+
+	/*Superhit Gallery Title  Link in Homepage */
+	@FindBy(xpath = "//div[contains(@class,'global')]//a[contains(@href,'photogallery')]")
+	private WebElement superhitGalleryTitleLnk;
+
+	/*Header Text Links Present in Article BreadCrumb*/
+	@FindBy(xpath ="//div[contains(@class,'crum') or contains(@class,'breadcum') or contains(@class,'brdc')]  | //ul[contains(@class, 'bread') or contains(@class,'brdc')]")
+	private WebElement articleBreadcrumb;
+
+
+	/**************************Rahul*Webelements********************/
+
+	/*Superhit box Previous button*/
+	@FindBy(xpath="//div[contains(@class,'superhit_slider')]//following-sibling::button[contains(@aria-label,'previous')]")
+	private WebElement suprhitPrevBtn;
+
+	/*Superhit box Next button*/
+	@FindBy(xpath="//div[contains(@class,'superhit_slider')]//following-sibling::button[contains(@aria-label,'next')]")
+	private WebElement suprhitnxtBtn;
+
+	/*Trending Topic link present at header section*/
+	@FindBy(xpath ="//div[contains(@class,'superhitSlider')]//child::div//a")
+	private List<WebElement> superhitArticle;
+
+	/*Superhit box section headline*/
+	@FindBy(xpath="//div[contains(@class,'superhit_box')]//h2")
+	private WebElement suprhitBoxHeadline;
+
+	/*Superhit box section headline*/
+	@FindBy(xpath="//div[contains(@class,'global')]//a[contains(@href,'/videos')]")
+	private WebElement videoHeadline;
+
+	/*Trending Topic link present at header section*/
+	@FindBy(xpath ="//div[contains(@class,'slideInner')]//a//h3[contains(@class,'superhit_title')]")
+	private List<WebElement> superHitActiveElement;
+
+	/*Superhit section liveNowPrev*/
+	@FindBy(xpath="//div[contains(@class,'mcricket_widget')]//following-sibling::div[contains(@class,' glide__arrows')]//button[text()='prev']")
+	private WebElement liveNowPrev;
+
+	/*Superhit section liveNowNext*/
+	@FindBy(xpath="//div[contains(@class,'mcricket_widget')]//following-sibling::div[contains(@class,' glide__arrows')]//button[text()='next']")
+	private WebElement liveNowNext;
+
+	/*Live now section article*/
+	@FindBy(xpath ="//div[contains(@class,'live_cwidget')]//div[contains(@class,'track')]//ul//li/a")
+	private List<WebElement> liveNowSectionArticle;
+
+	/*Superhit section liveNowBreadcrum*/
+	@FindBy(xpath="//div[contains(@class,'team-dtl')]")
+	private WebElement liveNowBreadcrum;
+
+	/*SuperHit Text present in SuperHit Section*/
+	@FindBy(xpath="//div[contains(@class,'superhitSlider')]//h3")
+	private WebElement superHitText;
+
+
+
+	//===============================Sanjeeb's Elements ============================================================
+
+
+	/* Change Language List present in Homepage Header*/
+	@FindBy(xpath ="//div//span[contains(text(),'CHANGE LANGUAGE')]//parent::div//a[contains(@href,'news18')]" )
+	private List<WebElement> changeLanguageList;
+
+	/*Change Language Button present at Header Part*/
+	@FindBy(xpath="(//div//span[contains(text(),'CHANGE LANGUAGE')]//parent::div//a[contains(@href,'news18')])[1]")
+	private WebElement changeLanguageBtn;
+
+	/*header Text Link Present RHS of News 18 Logo*/
+	@FindBy(xpath ="//div[contains(@class,'headerContainer')] | //div[contains(@class,'headerContainer')]//h2 | //div[contains(@class,'n18hcontainer')] ")
+	private WebElement headerTxtLogoLnk;
+
+	/*Change Language Button present at Header Part*/
+	@FindBy(xpath="//div[contains(@class,'Header_nhlivetv')]/a")
+	private WebElement LiveTVBtn;
+
+	/* Follow Us Section Present on the header of Gujarati Landing page*/
+	@FindBy(xpath ="//div[contains(@class,'Header_nhsocial')]/a" )
+	private List<WebElement> soialShareList;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//div[contains(@class,'buofh1pr')] | //form[contains(@id,'login_form')]")
+	private WebElement facebookHeader;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//img[contains(@src,'JioNewsAppIcon')]")
+	private WebElement jioHeader;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//div[contains(@class,'ytd-topbar')]")
+	private WebElement youtubeHeader;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//div[contains(@class,'r-')]//h1")
+	private WebElement twitterHeader;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//div[contains(@class,'_acum')] | //div//img[contains(@alt,'Instagram')] | //div//img[contains(@alt,'Instagram')]")
+	private WebElement instagramHeader;
+
+	/* Follow Us Section Present on the header of Gujarati Landing page*/
+	@FindBy(xpath ="//div[contains(@class,'Header_lnlapp')]/a" )
+	private List<WebElement> downLoadAppList;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//header[@role='banner']")
+	private WebElement googlePlayHeader;
+
+	/*Header Text Link Present in social media page*/
+	@FindBy(xpath ="//div[contains(@class,'localnav__title')]")
+	private WebElement appleHeader;
+
+	/*Trending Topics First Link is present in Header of home page*/
+	@FindBy(xpath="//div[contains(@class,'nhtranding')]//a[contains(@href,'news18')]")
+	private List<WebElement> headerTrendingTopicsLnks;
+
+
+	/*list of sections present in Line One Section Bar present at the header of Homepage*/
+	@FindBy(xpath ="//ul[contains(@class,'Menu_nav_bar')]//li/a")
+	private List<WebElement> lineOneSectionELementLnk;
+
+	/*Search Button Link Present on Line One Section of Homepage*/
+	@FindBy(xpath ="(//div[contains(@class,'header_search')]/a)[1]")
+	private WebElement searchBtnLnk;
+
+	/*Search Box Button present after clicking on Search Icon present on the Line One Section*/
+	@FindBy(xpath ="//div[contains(@id,'_gcse')]//input")
+	private WebElement searchBoxBtn;
+
+	/*Search Icon Present After Clicking on The Search Btn Present On the Line One Bar */
+	@FindBy(xpath ="//*[local-name()='svg']/parent::button")
+	private WebElement insideSearchIcon;
+
+	/*Search Box Link Present on Line One Section of Homepage*/
+	@FindBy(xpath ="(//div[contains(@class,'gsc-results')])[1]/div[contains(@class,'gsc-results')]")
+	private WebElement closeBtn;
+
+	/*header Text Link Present RHS of News 18 Logo*/
+	@FindBy(xpath ="//div[contains(@class,'logo-div')] | //div[contains(@class,'launch_info')]")
+	private WebElement trueCallerAndNetraSurkshaIcon;
+
+	/*electrical Hydra Icon Present On LineTwo Section*/
+	@FindBy(xpath ="(//div[contains(@class,'elhead')]//img)[1]")
+	private WebElement electricalHydraIcon;
+
+	/*crypto ki Samajh Icon Present On LineTwo Section*/
+	@FindBy(xpath ="(//div[contains(@class,'crypto_container')])[1]")
+	private WebElement cryptoKiSamajhIcon;
+
+	/*list of sections present inside line two present on the header of homepage*/
+	@FindBy(xpath ="//ul[contains(@class,'Menu_sub_navigation')]//a")
+	private List<WebElement> lineTwoSectionsLnk;
+
+	/*Hamburger Menu Link is present in the Top Main Menu*/
+	@FindBy(xpath ="//div[contains(@class,'Menu_nav')]")
+	private WebElement hamburgerMenuLnk;
+
+	/*list of sections present inside hamburger menu present on the header of homepage*/
+	@FindBy(xpath ="//div[contains(@class,'open_nav_sub')]//li/a")
+	private List<WebElement> hamburgerSectionsLnk;
+
+	/*Apna Seher Chune Input Box Present after Clicking on Seher Chune Present on the Line One Section of Hindi homepage*/
+	@FindBy(xpath="//div[contains(@class,'tpchsstctnames')]/input")
+	private WebElement chooseYourDistrictBox;
+
+	/*list Of elements present under apna Seher chune*/
+	@FindBy(xpath="//div[contains(@class,'tpctlits')]//a")
+	private List<WebElement> chooseYourDistrictEleList;
+
+	/*list Of all elements present under rajya Section*/
+	@FindBy(xpath="//div[contains(@class,'tpstatesnames')]//li")
+	private List<WebElement> districtSectionEleDropDwn;
+
+	/*list Of elements present under rajya Section*/
+	@FindBy(xpath="//div[contains(@class,'tpstatesnames')]//li/a")
+	private List<WebElement>  districtSectionEleList;
+
+	/*cancel Button Present After clicking Seher Chune Present on the Line One Section of Hindi homepage */
+	@FindBy(xpath="//div[contains(@class,'adclstpchsstctpopup')]/a")
+	private WebElement cancelBtn;
+
+	/*list Of elements present under rajya Section Dropdown*/
+	@FindBy(xpath="//li[contains(@class,'active')]//div[contains(@class,'tpstatesnames')]/a")
+	private List<WebElement> districtSectionDropdwnEleList;
+
+	/*choose your district Link Present on Line One Section Of Hindi Landing Page*/
+	@FindBy(xpath="//div[contains(@class,'Menu_chsstctbtn')]")
+	private WebElement chooseYourDistrictBtn;
+
+	/*Footer Bivag Section */
+	@FindBy(xpath="(//div[contains(@class,'footer_network')])")
+	private WebElement footerGroupSitesSection;
+
+	/*list Of elements present under Footer Bivag Section*/
+	@FindBy(xpath="(//div[contains(@class,'footer_network')])//a[not (contains(@href,'burrp'))]")
+	private List<WebElement> footerGroupSitesEleList;
+
+	/*header Text Link Present RHS of News 18 Logo*/
+	@FindBy(xpath ="//div[contains(@class,'navbar-header')] | //div[contains(@class,'logo bxshadow')]")
+	private WebElement townHallAndTopLearningIcon;
+
+	/*header Text Link Present RHS of News 18 Logo*/
+	@FindBy(xpath ="//div[contains(@class,'header-wrap container')] | //div[contains(@class,'logo-main')] ")
+	private WebElement firstPostAndCnbcIcon;
+
+	/*header Text Link Present RHS of News 18 Logo*/
+	@FindBy(xpath ="//div[contains(@class,'header-wrap container')] | //div[contains(@class,'container')]")
+	private WebElement historyAndMTvIcon;
+
+	/*header Text Link Present RHS of News 18 Logo*/
+	@FindBy(xpath ="//div[contains(@class,'headtop')  or contains(@class,'head_homepage') or contains(@class,'stmimg')]")
+	private WebElement moneyControlInstaPlayStoreIcon;
+
+	/*header Text for CompareIndia*/
+	@FindBy(xpath ="//div[contains(@class,'desklogo')]")
+	private WebElement compareIndiaIcon;
+
+	/*Footer Bivag Section */
+	@FindBy(xpath="(//ul[contains(@class,'footer_links')])[2]")
+	private WebElement footerAboutUSSection;
+
+	/*list Of elements present under Footer Bivag Section*/
+	@FindBy(xpath="(//ul[contains(@class,'footer_links')])[2]//a")
+	private List<WebElement> footerAboutUSEleList;
+
+	/*Footer Bivag Section */
+	@FindBy(xpath="(//ul[contains(@class,'footer_links')])[1]")
+	private WebElement footerBivagSection;
+
+	/*list Of elements present under Footer Bivag Section*/
+	@FindBy(xpath="(//ul[contains(@class,'footer_links')])[1]//a")
+	private List<WebElement> footerBivagEleList;
+
+	/*Footer Bivag Section */
+	@FindBy(xpath="//ul[contains(@class,'footer_news')]")
+	private WebElement footerLatestNewsSection;
+
+	/*list Of elements present under Footer Bivag Section*/
+	@FindBy(xpath="//ul[contains(@class,'footer_news')]//a")
+	private List<WebElement> footerLatestNewsEleList;
+
+	/*list Of elements present under Footer Social Section*/
+	@FindBy(xpath="//div[contains(@class,'social_icon')]//a")
+	private List<WebElement> footerSocialShareEleList;
+
+	/*Footer Social Share Section*/
+	@FindBy(xpath="//div[contains(@class,'social_icon')]")
+	private WebElement footerSocialShareSection;
+
+	/*Footer Live TV Section */
+	@FindBy(xpath="//div[contains(@class,'footer_other_logo')]")
+	private WebElement footerLiveTVSection;
+
+	/*Footer Live TV Section Previous Button */
+	@FindBy(xpath="//div[contains(@class,'footer_other_logo')]//button[contains(@aria-label,'previous')]")
+	private WebElement footerLiveTVSectionPreviousBtn;
+
+	/*Footer Live TV Section next Button */
+	@FindBy(xpath="//div[contains(@class,'footer_other_logo')]//button[contains(@aria-label,'next')]")
+	private WebElement footerLiveTVSectionNextBtn;
+
+	/*list Of elements present under Footer Live Tv Section*/
+	@FindBy(xpath="(//div[contains(@class,'carousel__slider-tray')])[2]//a")
+	private List<WebElement> liveTvEleList;
+	
+	/*BreadCrumb Present on Article Header*/
+	@FindBy(xpath="//div[contains(@class,'brda') or contains(@class,'bread') or contains(@class,'br')] | //ul[contains(@class,'brdcrm') or contains(@class,'bread')]")
+	private WebElement headerBreadcrumbLnk;
+
+	/**
+	 * @author Abhishek
+	 * This method is used to click on First Article of English Home Page 
+	 */
+	public void clickOnFirstArticleHomePage() {
+		try {
+			webDriverActions.click(homePageArticleLnk.get(0));
+		}
+		catch (NoSuchElementException e) {
+			Logs.error(getClass(), "Exception in first Article Homepage");
+		}
+	}
+
+	/**
+	 * @author Abhishek
+	 * This method used to click on photos section
+	 */
+	public void clickOnPhotosSection()
+	{
+		try {
+			webDriverActions.click(photoSectionLineOneLnk);
+		}
+		catch (NoSuchElementException e) {
+			Logs.error(getClass(), "Exception in Photos Section Link", e);
+		}	
+
+	}
+
+
+	/**
+	 *@author SanjeebKumarPati
+	 * This method is used to click on LiveBlog Article of Gujurati Home Page 
+	 */
+	public void clickOnLiveBlogArticleHomePage() {
+		try {
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.waitForSecond(1000);
+			if(webDriverActions.isElementDisplayed(homePageLiveBlogArticleLnk.get(0)))
+			{
+				webDriverActions.clickJS(homePageLiveBlogArticleLnk.get(0));
+			}
+			else
+			{
+				Logs.error(getClass(), "Exception in Live blog in HomePage Link");
+				throw new SkipException("Unable to locate Live Blog Article element possibly no Live Blog Present "+webDriverActions.getCurrentPageUrl());	
+			}
+		}
+		catch(IndexOutOfBoundsException e) {
+			Logs.error(getClass(), "Exception in Live blog in HomePage Link");
+			throw new SkipException("Unable to locate Live Blog Article element possibly no Live Blog Present "+webDriverActions.getCurrentPageUrl());
+		}
+	}
+
+	/**
+	 * @author Sanjeeb
+	 * This method is used to click on CricketNext link present on Hamburger Menu
+	 */
+	public void clickOnSportsLnk()
+	{
+		try {
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.click(sportsSectionLnk);
+		}
+		catch (NoSuchElementException e) {
+			Logs.error(getClass(), "Exception in Sports Link");
+		}	
+	}
+
+	/**
+	 * @author Sanjeeb
+	 * This method is used to click on First Section link present on line one section
+	 */
+	public void clickOnFirstSection()
+	{
+		try {
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.click(sectionLnks.get(1));	
+		}
+		catch (NoSuchElementException e) {
+			Logs.error(getClass(), "Exception in first Section");
+		}
+	}
+
+
+
+	/**
+	 * @author Sanjeeb
+	 * This method is used to click on Video link present on Line one section
+	 */
+	public void clickOnVideoLnk()
+	{
+		try {
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.click(videoSectionLnk);	
+		}
+		catch (IndexOutOfBoundsException e) {
+
+			Logs.error(getClass(), "Exception in Video Section Link");
+		}
+		catch (NoSuchElementException e) {
+			Logs.error(getClass(), "Exception in Video Section Link");
+		}
+	}
+
+
+	/**
+	 * @author Sanjeeb
+	 * This method is used to Click on First topic link of Trending Topics Section present At the Footer Of HomePage
+	 */
+	public void clickOnFirstTopicLnkTrendingTopics() {
+		try {
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.continuousScrollTillElement(trendingTopicsLnk.get(0), GlobalVariables.sec60);
+			webDriverActions.clickJS(trendingTopicsLnk.get(0));
+		}
+		catch (NoSuchElementException e) {
+			Logs.error(getClass(), "Exception in Trending Topics in Home Page");
+		}
+	}
+
+
+	/**
+	 * This method used to navigate to Latest Section Page
+	 */
+	public void latestSection() {
+		try{
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.click(latestSectionLnk);
+			Logs.info(getClass(),"Clicked on latest section link");
+		}catch (Exception e) {
+			Logs.error(getClass(),"Latest section link is not found");
+		}
+	}
+
+
+	/**
+	 * @author Abhishek
+	 * This method is used to click on LiveBlog Article of English Home Page 
+	 */
+	public void clickOnFirstLiveBlogArticleHomePage() {
+		try {
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.waitForSecond(1000);
+			if(webDriverActions.isElementDisplayed(homePageLiveBlogArticleLnks.get(0)))
+			{
+				webDriverActions.clickJS(homePageLiveBlogArticleLnks.get(0));
+			}
+			else
+			{
+				Logs.error(getClass(), "Exception in Live blog in HomePage Link");
+				throw new SkipException("Unable to locate Live Blog Article element possibly no Live Blog Present "+webDriverActions.getCurrentPageUrl());	
+			}
+		}
+		catch(IndexOutOfBoundsException e) {
+			Logs.error(getClass(), "Exception in Live blog in HomePage Link");
+			throw new SkipException("Unable to locate Live Blog Article element possibly no Live Blog Present "+webDriverActions.getCurrentPageUrl());
+		}
+	}
+
+	//--------------------------------Anupam Business logic----
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate article navigation in home page
+	 * @param serverType
+	 * @param section
+	 * @param artList
+	 */
+	public void verifyArticlesNavigation(String serverType,WebElement section ,List<WebElement> artList, WebElement element)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(videoBodySectionLnk, 4);
+		webDriverActions.softMouseHover(videoBodySectionLnk);
+		webDriverActions.continuousScrollTillElement(section, 6);
+		webDriverActions.softMouseHover(section);
+		webDriverActions.softScrollToElement(section);
+		webDriverActions.softHighlightElement(section);
+		softAssert.assertTrue(artList.size()>0, " Possibly Element is Not Visible "+ artList );
+		for(int i=0; i<artList.size() ;i++)
+		{
+			webDriverActions.softMouseHover(artList.get(i));
+			webDriverActions.softScrollToElement(artList.get(i));
+			String actualUrl =	webDriverActions.getAttribute("href", artList.get(i));
+			Logs.info(getClass(), actualUrl);
+			webDriverActions.softClickJS(artList.get(i));
+			webDriverActions.waitForPageToLoad();
+
+			webDriverActions.waitForSecond(1000);
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			String expectedUrl = webDriverActions.getCurrentPageUrl();
+
+			if (serverType.equalsIgnoreCase("preProd")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage=betaUrl;
+			}
+			else {
+				currentPage = webDriverActions.getCurrentPageUrl();
+			} 
+
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.waitForSecond(2000);
+			webDriverActions.softHighlightElement(element);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) , "Unable to Display Element "+element +"in "+currentPage);
+			if (currentPage.contains(expectedUrl)) {
+				webDriverActions.navigateBack();
+			}
+			else {
+				webDriverActions.navigateBack();
+				webDriverActions.navigateBack();
+			}		
+		}
+		softAssert.assertAll("Issue Found in HomePage Body Article Navigation");	
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to verify image navigation of section in home page	
+	 * @param serverType
+	 * @param section
+	 * @param artList
+	 */
+	public void verifyImgNavigation(String serverType ,WebElement section ,List<WebElement> artList ,WebElement element)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(videoBodySectionLnk, 4);
+		webDriverActions.softMouseHover(videoBodySectionLnk);
+		webDriverActions.continuousScrollTillElement(section, 8);		
+		webDriverActions.softScrollToElement(section);
+		webDriverActions.softMouseHover(section);
+		webDriverActions.softHighlightElement(section);
+		softAssert.assertTrue(artList.size()>0, " Possibly Element is Not Visible "+ artList );
+		for(int i=0; i<artList.size() ;i++)
+		{
+			webDriverActions.softMouseHover(artList.get(i));
+			webDriverActions.softScrollToElement(artList.get(i));
+			webDriverActions.softClickJS(artList.get(i));
+			webDriverActions.waitForPageToLoad();
+
+			webDriverActions.waitForSecond(1000);
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			String expectedUrl = webDriverActions.getCurrentPageUrl();
+			if (serverType.equalsIgnoreCase("preProd")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage=betaUrl;
+			}
+			else {
+				currentPage = webDriverActions.getCurrentPageUrl();
+			} 
+
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.waitForSecond(2000);
+			webDriverActions.softHighlightElement(element);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) ,  "Unable to Display Element "+element + "after Clicking on "+currentPage);
+			if (currentPage.contains(expectedUrl)) {
+				webDriverActions.waitForSecond(1000);
+				webDriverActions.navigateBack();
+				webDriverActions.waitForSecond(1000);
+			}
+			else {
+				webDriverActions.navigateBack();
+				webDriverActions.navigateBack();
+			}		
+		}
+		softAssert.assertAll("Issue Found in HomePage Body Image Navigation");	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to Verify the More Widget News Navigation
+	 * @param serverType
+	 * @param moreLnk
+	 * @param breadcrumb
+	 */
+	public void verifyMoreLnks(String serverType,WebElement moreLnk, WebElement breadcrumb) {
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(videoBodySectionLnk, 4);
+		webDriverActions.softMouseHover(videoBodySectionLnk);
+		webDriverActions.continuousScrollTillElement(moreLnk, 8);
+		webDriverActions.softMouseHover(moreLnk);
+		webDriverActions.softScrollToElement(moreLnk);
+		webDriverActions.softHighlightElement(moreLnk);
+		String actualUrl = webDriverActions.getAttribute("href", moreLnk);
+		Logs.info(getClass(),"Actual text Before Click " + actualUrl);
+		webDriverActions.softHighlightElement(moreLnk);
+		webDriverActions.softClickJS(moreLnk);
+		webDriverActions.waitForPageToLoad();
+
+		webDriverActions.waitForSecond(1000);
+		String currentPage = webDriverActions.getCurrentPageUrl();
+		softAssert.assertEquals(actualUrl, currentPage , "Unable to Navigate "+actualUrl);
+
+		if (serverType.equalsIgnoreCase("preProd")) {
+			String betaUrl = genericUtility.replaceInUrl(currentPage);
+			webDriverActions.navigateToUrl(betaUrl);
+			currentPage=betaUrl;
+		}
+		else {
+			currentPage = webDriverActions.getCurrentPageUrl();
+		} 
+
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.waitForSecond(2000);
+		softAssert.assertTrue(webDriverActions.softIsElementDisplayed(breadcrumb),"Unable to Display Element "+breadcrumb+ "in "+currentPage);
+		softAssert.assertAll("Issue Found in HomePage Body More Link");
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to Verify the More Widget News Navigation
+	 * @param serverType
+	 * @param section
+	 * @param breadcrumb
+	 */
+	public void verifySectionLnks(String serverType,WebElement section, WebElement breadcrumb) {
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(videoBodySectionLnk, 4);
+		webDriverActions.softMouseHover(videoBodySectionLnk);
+		webDriverActions.continuousScrollTillElement(section, 8);	
+		webDriverActions.softMouseHover(section);
+		webDriverActions.softScrollToElement(section);
+		webDriverActions.softHighlightElement(section);
+		String actualUrl = webDriverActions.getAttribute("href", section);
+		Logs.info(getClass(),"Actual text Before Click " + actualUrl);
+		webDriverActions.softHighlightElement(section);
+		webDriverActions.softClickJS(section);
+		webDriverActions.waitForPageToLoad();
+
+		webDriverActions.waitForSecond(1000);
+		String currentPage = webDriverActions.getCurrentPageUrl();
+		softAssert.assertEquals(actualUrl, currentPage , "Unable to Navigate "+actualUrl);
+
+		if (serverType.equalsIgnoreCase("preProd")) {
+			String betaUrl = genericUtility.replaceInUrl(currentPage);
+			webDriverActions.navigateToUrl(betaUrl);
+			currentPage=betaUrl;
+		}
+		else {
+			currentPage = webDriverActions.getCurrentPageUrl();
+		} 
+
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.waitForSecond(2000);
+		softAssert.assertTrue(webDriverActions.softIsElementDisplayed(breadcrumb),"Unable to Display Element "+breadcrumb+"in "+currentPage);
+		webDriverActions.waitForSecond(1000);
+		softAssert.assertAll("Issue Found in HomePage Body Section Link");
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate article navigation in home page
+	 * @param section
+	 * @param artList
+	 */
+	public void verifyArticlesNavigationNewTab(String serverType,WebElement section ,List<WebElement> artList, WebElement element)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		String title = webDriverActions.getPageTitle();
+		webDriverActions.continuousScrollTillElement(section, 20);
+		webDriverActions.softScrollToElement(section);
+		webDriverActions.softMouseHover(section);
+		webDriverActions.softHighlightElement(section);
+		softAssert.assertTrue(artList.size()>0, " Possibly Element is Not Visible "+ artList );
+		for(int i=0; i<artList.size() ;i++)
+		{
+			String actualUrl =	webDriverActions.getAttribute("href", artList.get(i));
+			Logs.info(getClass(), actualUrl);
+			webDriverActions.navigateToNewTab(artList.get(i));
+			webDriverActions.switchToNewWindow();
+			webDriverActions.waitForPageToLoad();
+
+			if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.closeDriver();
+				webDriverActions.switchToWindow(title);
+				webDriverActions.waitForSecond(2000);
+				actualUrl =	webDriverActions.getAttribute("href", artList.get(i));
+				Logs.info(getClass(), actualUrl);
+				webDriverActions.navigateToNewTab(artList.get(i));
+				webDriverActions.switchToNewWindow();
+				webDriverActions.waitForPageToLoad();
+			}
+
+
+			webDriverActions.waitForSecond(1000);
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			String expectedUrl = webDriverActions.getCurrentPageUrl();
+			softAssert.assertEquals(actualUrl, currentPage , "Unable to Navigate "+actualUrl);
+
+			if (serverType.equalsIgnoreCase("preProd")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage=betaUrl;
+			}
+			else {
+				currentPage = webDriverActions.getCurrentPageUrl();
+			} 
+
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.waitForSecond(2000);
+			webDriverActions.softWaitForElementVisibility(element, 5);
+			Logs.info(getClass(), expectedUrl);
+			webDriverActions.softHighlightElement(element);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) , "Unable to Display Element "+element +"in "+currentPage);
+			webDriverActions.closeDriver();
+			webDriverActions.switchToWindow(title);
+			webDriverActions.waitForSecond(2000);
+		}
+		softAssert.assertAll("Issue Found in HomePage Body Article Navigation");	
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to verify image navigation of section in home page	
+	 * @param section
+	 * @param artList
+	 */
+	public void verifyImgNavigationNewTab(String serverType,WebElement section ,List<WebElement> artList ,WebElement element)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		String title = webDriverActions.getPageTitle();
+		webDriverActions.continuousScrollTillElement(section, 20);		
+		webDriverActions.softScrollToElement(section);
+		webDriverActions.softMouseHover(section);
+		webDriverActions.softHighlightElement(section);
+		softAssert.assertTrue(artList.size()>0, " Possibly Element is Not Visible "+ artList );
+		for(int i=0; i<artList.size() ;i++)
+		{
+			webDriverActions.navigateToNewTab(artList.get(i));
+			webDriverActions.switchToNewWindow();
+			webDriverActions.waitForPageToLoad();
+
+			if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.closeDriver();
+				webDriverActions.switchToWindow(title);
+				webDriverActions.waitForSecond(2000);
+				//				actualTitle =	webDriverActions.getAttribute("title", artList.get(i));
+				webDriverActions.navigateToNewTab(artList.get(i));
+				webDriverActions.switchToNewWindow();
+				webDriverActions.waitForPageToLoad();
+			}
+
+			webDriverActions.waitForSecond(1000);
+			String currentPage = webDriverActions.getCurrentPageUrl();
+
+			if (serverType.equalsIgnoreCase("preProd")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage=betaUrl;
+			}
+			else {
+				currentPage = webDriverActions.getCurrentPageUrl();
+			} 
+
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.waitForSecond(2000);
+			webDriverActions.softHighlightElement(element);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) ,  "Unable to Display Element "+element + " on "+currentPage);
+			webDriverActions.closeDriver();
+			webDriverActions.switchToWindow(title);
+			webDriverActions.waitForSecond(2000);
+		}
+		softAssert.assertAll("Issue Found in HomePage Body Image Navigation");	}
+
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Video Widget
+	 */
+	public void verifyVideoWidget(String serverType) {
+		verifySectionLnks(serverType,videoBodySectionLnk, videoBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Video Widget Article
+	 */
+	public void verifyVideoWidgetArticle(String serverType) {
+		verifyArticlesNavigationNewTab(serverType,videoBodySectionLnk,videoSectionArticleLnk, videoBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Video Widget Image
+	 */
+	public void verifyVideoWidgetImg(String serverType) {
+		verifyImgNavigationNewTab(serverType,videoBodySectionLnk,videoSectionImgLnk, videoBreadcrumb);
+	}
+
+	//-----Life
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Lifestyle Widget
+	 */
+	public void verifyLifeWidget(String serverType) {
+		verifySectionLnks(serverType,lifestyleSectionLnk, lifestyleBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Lifestyle Widget Article
+	 */
+	public void verifyLifeWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,lifestyleSectionLnk,lifestyleSectionArticleLnk, lifestyleBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Lifestyle Widget Image
+	 */
+	public void verifyLifeWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,lifestyleSectionLnk,lifestyleSectionImgLnk, lifestyleBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More Lifestyle News
+	 */
+	public void verifyMoreLifeLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreLifestyleSectionLnk, lifestyleBreadcrumb);
+	}
+
+	//-----Sport
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of FooterSport Widget
+	 */
+	public void verifySportWidget(String serverType) {
+		verifySectionLnks(serverType,sportSectionLnk, sportBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of FooterSport Widget Article
+	 */
+	public void verifySportWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,sportSectionLnk,sportSectionArticleLnk, sportBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of FooterSport Widget Image
+	 */
+	public void verifySportWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,sportSectionLnk,sportSectionImgLnk, sportBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More FooterSport News
+	 */
+	public void verifyMoreSportLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreSportSectionLnk, sportBreadcrumb);
+	}
+
+
+	//-----EyeCatcher
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of EyeCatcher Widget
+	 */
+	public void verifyEyeCatcherWidget(String serverType) {
+		verifySectionLnks(serverType,eyeCatcherSectionLnk, eyeCatcherBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of EyeCatcher Widget Article
+	 */
+	public void verifyEyeCatcherWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,eyeCatcherSectionLnk,eyeCatcherSectionArticleLnk, eyeCatcherBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of EyeCatcher Widget Image
+	 */
+	public void verifyEyeCatcherWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,eyeCatcherSectionLnk,eyeCatcherSectionImgLnk, eyeCatcherBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More EyeCatcher News
+	 */
+	public void verifyMoreEyeCatcherLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreEyeCatcherSectionLnk, eyeCatcherBreadcrumb);
+	}
+
+
+	//-----MobileAndTech
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of MobileAndTech Widget
+	 */
+	public void verifyMobileAndTechWidget(String serverType) {
+		verifySectionLnks(serverType,mobileAndTechSectionLnk, mobileAndTechBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of MobileAndTech Widget Article
+	 */
+	public void verifyMobileAndTechWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,mobileAndTechSectionLnk,mobileAndTechSectionArticleLnk, mobileAndTechBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of MobileAndTech Widget Image
+	 */
+	public void verifyMobileAndTechWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,mobileAndTechSectionLnk,mobileAndTechSectionImgLnk, mobileAndTechBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More MobileAndTech News
+	 */
+	public void verifyMoreMobileAndTechLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreMobileAndTechSectionLnk, mobileAndTechBreadcrumb);
+	}
+
+
+	//-----Entertainment
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Entertainment Widget
+	 */
+	public void verifyEntertainmentWidget(String serverType) {
+		verifySectionLnks(serverType,entertainmentSectionLnk, entertainmentBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Entertainment Widget Article
+	 */
+	public void verifyEntertainmentWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,entertainmentSectionLnk,entertainmentSectionArticleLnk, entertainmentBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Entertainment Widget Image
+	 */
+	public void verifyEntertainmentWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,entertainmentSectionLnk,entertainmentSectionImgLnk, entertainmentBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More Entertainment News
+	 */
+	public void verifyMoreEntertainmentLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreEntertainmentSectionLnk, entertainmentBreadcrumb);
+	}
+
+
+	//-----national-international
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of national-international Widget
+	 */
+	public void verifyNationalInternationalWidget(String serverType) {
+		verifySectionLnks(serverType,nationalInternationalSectionLnk, nationalInternationalBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of national-international Widget Article
+	 */
+	public void verifyNationalInternationalWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,nationalInternationalSectionLnk,nationalInternationalArticleLnk, nationalInternationalBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of national-international Widget Image
+	 */
+	public void verifyNationalInternationalWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,nationalInternationalSectionLnk,nationalInternationalImgLnk, nationalInternationalBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More national-international News
+	 */
+	public void verifyMoreNationalInternationalLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreNationalInternationalLnk, nationalInternationalBreadcrumb);
+	}
+
+
+	//-----Career
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Career Widget
+	 */
+	public void verifyCareerWidget(String serverType) {
+		verifySectionLnks(serverType,careerSectionLnk, careerBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Career Widget Article
+	 */
+	public void verifyCareerWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,careerSectionLnk,careerSectionArticleLnk, careerBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Career Widget Image
+	 */
+	public void verifyCareerWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,careerSectionLnk,careerSectionImgLnk, careerBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More Career News
+	 */
+	public void verifyMoreCareerLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreCareerSectionLnk, careerBreadcrumb);
+	}
+
+
+	//-----Business
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Business Widget
+	 */
+	public void verifyBusinessWidget(String serverType) {
+		verifySectionLnks(serverType,businessSectionLnk, businessBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Business Widget Article
+	 */
+	public void verifyBusinessWidgetArticle(String serverType) {
+		verifyArticlesNavigation(serverType,businessSectionLnk,businessSectionArticleLnk, businessBreadcrumb);
+	}
+
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of Business Widget Image
+	 */
+	public void verifyBusinessWidgetImg(String serverType) {
+		verifyImgNavigation(serverType,businessSectionLnk,businessSectionImgLnk, businessBreadcrumb);
+	}
+
+	/**
+	 * @author AnupamGupta
+	 * This method is used to validate navigation of More Business News
+	 */
+	public void verifyMoreBusinessLnk(String serverType) {
+		verifyMoreLnks(serverType,readMoreBusinessSectionLnk, businessBreadcrumb);
+	}
+
+
+	//------------------------------------------ Vipins Business Logic ------------------------------------------//
+
+
+	/**
+	 * @param artList
+	 * @param element
+	 * @author VipinKumarGawande
+	 * This method is used to Verify All The Widgets Article Text Navigation  
+	 */
+	public void verifyArticleNavigation(String serverType , List<WebElement> artList , WebElement element)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		// String homeUrl = webDriverActions.getCurrentPageUrl();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillAllElement(artList, 15);
+		if(artList.size()>0)
+		{
+			webDriverActions.softScrollToElement(artList.get(0));
+			webDriverActions.softMouseHover(artList.get(0));
+			webDriverActions.waitForSecond(1000);
+			for(int i=0; i<artList.size() ;i++)
+			{
+				webDriverActions.waitForSecond(1000);
+				webDriverActions.softMouseHover(artList.get(i));
+				webDriverActions.softScrollToElement(artList.get(i));
+				String actual =	webDriverActions.getAttribute("href", artList.get(i));
+				Logs.info(getClass(), actual);
+				webDriverActions.waitForSecond(2000);
+				webDriverActions.softClickJS(artList.get(i));
+				webDriverActions.waitForSecond(2000);
+				if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL/"))
+				{
+					webDriverActions.navigateBack();
+					webDriverActions.softMouseHover(artList.get(i));
+					webDriverActions.softScrollToElement(artList.get(i));
+					actual = webDriverActions.getAttribute("href", artList.get(i));
+					Logs.info(getClass(), actual);
+					webDriverActions.waitForSecond(2000);
+					webDriverActions.softClickJS(artList.get(i));
+				}
+				String currentPage =webDriverActions.getCurrentPageUrl();
+				Logs.info(getClass(), currentPage);
+				String expectedUrl = webDriverActions.getCurrentPageUrl();
+				if (serverType.equalsIgnoreCase("preProd")) {
+					String betaUrl = genericUtility.replaceInUrl(currentPage);
+					webDriverActions.navigateToUrl(betaUrl);
+					currentPage=betaUrl;
+				}
+				else {
+					currentPage = webDriverActions.getCurrentPageUrl();
+				}
+				webDriverActions.softHighlightElement(element);
+				webDriverActions.waitForSecond(2000);
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) , "Unable to Display Element in "+currentPage);;
+				// // webDriverActions.navigateToUrl(homeUrl);
+				if (currentPage.contains(expectedUrl)) {
+					webDriverActions.navigateBack();
+				}
+				else {
+					webDriverActions.navigateBack();
+					webDriverActions.navigateBack();
+				}	
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Element is Not Visible or Size is "+artList.size());
+		}
+
+		softAssert.assertAll("Issues Found in Homepage Body");
+	}
+
+
+	/**
+	 * @param imgList
+	 * @param element
+	 * @author VipinKumarGawande
+	 * This method is used to Verify All The Widgets Image Navigation  
+	 */
+	public void verifyImageNavigation(String serverType , List<WebElement> imgList, WebElement element)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		String homeUrl = webDriverActions.getCurrentPageUrl();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillAllElement(imgList, 15);
+		if(imgList.size()>0)
+		{
+			webDriverActions.softScrollToElement(imgList.get(0));
+			webDriverActions.softMouseHover(imgList.get(0));
+			for(int i=0; i<imgList.size() ;i++)
+			{
+				webDriverActions.softMouseHover(imgList.get(i));
+				webDriverActions.softScrollToElement(imgList.get(i));
+				String actual =	webDriverActions.getAttribute("src", imgList.get(i));
+				Logs.info(getClass(), actual);
+				webDriverActions.softHighlightElement(imgList.get(i));
+				webDriverActions.softClickJS(imgList.get(i));
+				webDriverActions.waitForPageToLoad();
+				webDriverActions.waitForSecond(2000);
+				if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL/"))
+				{
+					webDriverActions.navigateBack();
+					webDriverActions.softMouseHover(imgList.get(i));
+					webDriverActions.softScrollToElement(imgList.get(i));
+					actual = webDriverActions.getAttribute("href", imgList.get(i));
+					Logs.info(getClass(), actual);
+					webDriverActions.waitForSecond(2000);
+					webDriverActions.softClickJS(imgList.get(i));
+				}
+				String currentPage =webDriverActions.getCurrentPageUrl();
+				Logs.info(getClass(), currentPage);
+				String expectedUrl = webDriverActions.getCurrentPageUrl();
+				if(expectedUrl.equalsIgnoreCase(homeUrl))
+				{
+					softAssert.fail("Unable to Navigate in "+actual);
+				}
+				else if (serverType.equalsIgnoreCase("preProd")) {
+					String betaUrl = genericUtility.replaceInUrl(currentPage);
+					webDriverActions.navigateToUrl(betaUrl);
+					currentPage=betaUrl;
+				}
+				else {
+					currentPage = webDriverActions.getCurrentPageUrl();
+				}
+				webDriverActions.softHighlightElement(element);
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) ,  "Unable to Display Element in "+currentPage);
+				// webDriverActions.navigateToUrl(homeUrl);
+				if (currentPage.contains(expectedUrl)) {
+					webDriverActions.navigateBack();
+				}
+				else {
+					webDriverActions.navigateBack();
+					webDriverActions.navigateBack();
+				}	
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Element is Not Visible or Size is "+imgList.size());
+		}
+		softAssert.assertAll("Issues Found in Homepage Body");
+	}
+
+	/**
+	 * @param moreLnk
+	 * @param element
+	 * @author VipinKumarGawande
+	 * This method is used to Verify the More Widget News Navigation
+	 */
+	public void verifyMoreNewsNavigation(String serverType , WebElement moreLnk , WebElement element) {
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(moreLnk, 15);
+		webDriverActions.softMouseHover(moreLnk);
+		webDriverActions.softScrollToElement(moreLnk);
+		String actual = webDriverActions.getAttribute("href", moreLnk);
+		webDriverActions.softClickJS(moreLnk);
+		String currentPage = webDriverActions.getCurrentPageUrl();
+		if (serverType.equalsIgnoreCase("preProd")) {
+			String betaUrl = genericUtility.replaceInUrl(currentPage);
+			webDriverActions.navigateToUrl(betaUrl);
+			currentPage=betaUrl;
+		}
+		else {
+			currentPage = webDriverActions.getCurrentPageUrl();
+		}
+		webDriverActions.highlightElement(element);
+		softAssert.assertTrue(webDriverActions.softIsElementDisplayed(element) , "Unable to Display Element in "+currentPage);
+		softAssert.assertAll("Issues Found in Homepage Body");
+	}
+
+	/**
+	 * @author VipinKumarGawande
+	 * @param serverType
+	 * @param element
+	 * @param breadcrumb
+	 * This method is used to Validate the Title Navigation for All Section In Homepage
+	 */
+	public void verifyTitleNavigation(String serverType , WebElement element , WebElement breadcrumb)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softScrollToElement(element);
+		webDriverActions.softMouseHover(element);
+		webDriverActions.softClickJS(element);
+		webDriverActions.waitForPageToLoad();
+		String currentPage = webDriverActions.getCurrentPageUrl();
+		if (serverType.equalsIgnoreCase("preProd")) {
+			String betaUrl = genericUtility.replaceInUrl(currentPage);
+			webDriverActions.navigateToUrl(betaUrl);
+			currentPage=betaUrl;
+		}
+		else {
+			currentPage = webDriverActions.getCurrentPageUrl();
+		}
+		softAssert.assertTrue(webDriverActions.softIsElementDisplayed(breadcrumb), "Unable to Display Element in"+currentPage);
+		softAssert.assertAll("Issue in Homepage Body ");
+	}
+
+	public void checkLinks(String links)  {
+		//		SoftAssert softAssert = new SoftAssert();
+		try {
+			URL url=new URL(links);
+			HttpURLConnection httpUrlConnection=(HttpURLConnection)url.openConnection();
+			httpUrlConnection.setConnectTimeout(40000);	
+			httpUrlConnection.connect();
+			int responseCode = httpUrlConnection.getResponseCode();
+			softAssert.assertTrue((responseCode<400), "URL has issue in "+links);
+		}
+		catch (Exception e) {
+			Logs.error(getClass(), "Unable to fetch the link response ", e );
+		} 
+
+	}	
+	//	public void checkLinks(String links)  {
+	//		SoftAssert softAssert = new SoftAssert();
+	//		try {
+	//			URL url=new URL(links);
+	//			HttpURLConnection httpUrlConnection=(HttpURLConnection)url.openConnection();
+	//			httpUrlConnection.setConnectTimeout(40000);	
+	//			httpUrlConnection.connect();
+	//			int responseCode = httpUrlConnection.getResponseCode();
+	//			softAssert.assertTrue((responseCode<400), "URL has issue in these "+links);
+	//		}
+	//		catch (Exception e) {
+	//			Logs.error(getClass(), "Unable to fetch the link response ", e );
+	//		} 
+	//	}	
+
+
+	public void verifyPriorityPanelArticleNavigation(String serverType)
+	{
+		verifyArticleNavigation(serverType, priorityPanelArticleLnk, articleBreadCrumbDiv);
+	}
+
+	public void verifyPriorityPanelImageNavigation(String serverType)
+	{
+		verifyImageNavigation(serverType, priorityPanelImgLnk, articleBreadCrumbDiv);
+	}
+
+	public void verifyDharamBhaktiArticleNavigation(String serverType)
+	{
+		verifyArticleNavigation(serverType, dharamBhaktiArticleLnk, articleBreadCrumbDiv);
+	}
+
+	public void verifyDharamBhaktiImageNavigation(String serverType)
+	{
+		verifyImageNavigation(serverType, dharamBhaktiImgLnk, articleBreadCrumbDiv);
+	}
+
+	/**
+	 * @author VipinKumarGawande
+	 * @param serverType
+	 * This method is used to Validate the Webstories Article Navigation for Webstories Section
+	 */
+	public void verifyWebstoriesArticleNavigation(String serverType)
+	{
+		List<String> list=new ArrayList<String>();
+		//		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(webstoriesTitleLnk, 10);
+		webDriverActions.softMouseHover(webstoriesTitleLnk);
+		webDriverActions.scrollDown();
+		Logs.info(getClass(),"Total Links "+webstoriesArticleLnk.size());
+		webDriverActions.waitForSecond(5000);
+		for(WebElement webstoryArticle:webstoriesArticleLnk)
+		{
+			String attribute = webstoryArticle.getAttribute("href");
+			list.add(attribute);
+		}
+		list.parallelStream().forEach(e -> checkLinks(e));
+		softAssert.assertAll("Issue Found in Homepage ");
+	}
+
+	/**
+	 * @author VipinKumarGawande
+	 * @param serverType
+	 * This method is used to Validate the Webstories Image Navigation for Webstories Section 
+	 */
+	public void verifyWebstoriesImageNavigation(String serverType)
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(webstoriesTitleLnk, 50);
+		if(webstoriesImgLnk.size()>0)
+		{
+			webDriverActions.softMouseHover(activeWebstoriesImgLnk);
+			String title = webDriverActions.getPageTitle();
+			for(int i=0; i<30 ;i++)
+			{
+				webDriverActions.softMouseHover(activeWebstoriesArticleLnk);
+				webDriverActions.softClickJS(webstoriesSliderBtn.get(i));
+				webDriverActions.softClickJS(activeWebstoriesArticleLnk);
+				//					webDriverActions.softMouseHover(activeWebstoriesArticleLnk);
+				//					webDriverActions.softMouseHover(webstoriesImgLnk.get(i));
+				//					webDriverActions.mouseHoverAndClick(webstoriesImgLnk.get(i));
+				if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL/"))
+				{
+					webDriverActions.navigateBack();
+					webDriverActions.softMouseHover(activeWebstoriesArticleLnk);
+					webDriverActions.softClickJS(webstoriesSliderBtn.get(i));
+					webDriverActions.softClickJS(activeWebstoriesArticleLnk);
+				}
+				webDriverActions.switchToNewWindow();
+				webDriverActions.waitForPageToLoad();
+				webDriverActions.waitForSecond(2000);
+				String currentPage =webDriverActions.getCurrentPageUrl();
+				Logs.info(getClass(), currentPage);
+				if (serverType.equalsIgnoreCase("preProd")) {
+					String betaUrl = genericUtility.replaceInUrl(currentPage);
+					webDriverActions.navigateToUrl(betaUrl);
+					currentPage=betaUrl;
+				}
+				else {
+					currentPage = webDriverActions.getCurrentPageUrl();
+				}
+				webDriverActions.softHighlightElement(nextWebStoryBtn);
+				webDriverActions.waitForSecond(2000);
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(nextWebStoryBtn) , "Unable to Display Element in "+currentPage);;
+				webDriverActions.closeDriver();
+				webDriverActions.switchToWindow(title);
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Element is Not Visible or Size is "+webstoriesImgLnk.size());
+		}
+		softAssert.assertAll("Issues Found in Homepage Body");
+	}
+
+
+	/**
+	 *  @author VipinKumarGawande
+	 *  This method is used to Validate the Slider Navigation in Webstories Section
+	 */
+	public void verifyWebstoriesSliderNavigation()
+	{
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softMouseHover(webstoriesTitleLnk);
+		webDriverActions.softScrollToElement(webstoriesTitleLnk);
+		if(webDriverActions.isElementDisplayed(activeWebstoriesArticleLnk))
+		{
+			for(int i = 0 ; i< webstoriesSliderBtn.size() ; i++)
+			{
+				webDriverActions.softMouseHover(activeWebstoriesArticleLnk);
+				webDriverActions.softScrollToElement(activeWebstoriesArticleLnk);
+				String beforeSlide = webDriverActions.getTextFromElement(activeWebstoriesArticleLnk);
+				Logs.info(getClass(), beforeSlide);
+				webDriverActions.softHighlightElement(webstoriesSliderBtn.get(i));
+				webDriverActions.softClickJS(webstoriesSliderBtn.get(i));
+				webDriverActions.waitForSecond(2000);
+				String afterSlide = webDriverActions.getTextFromElement(activeWebstoriesArticleLnk);
+				Logs.info(getClass(), afterSlide);
+				softAssert.assertNotEquals(beforeSlide, afterSlide , "Possibly Slider is Not Working ");
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Slider Button Is Not Displayed ");
+		}
+	}
+
+	public void verifyWebstoriesTitleNavigation(String serverType)
+	{
+		verifyTitleNavigation(serverType , webstoriesTitleLnk, articleBreadCrumbDiv);
+	}
+
+	public void verifyDharamBhaktiReadMoreNavigation(String serverType)
+	{
+		verifyMoreNewsNavigation(serverType, dharamBhaktiReadMoreLnk, articleBreadCrumbDiv);
+	}
+	/***********************Danish**BusinessLogic****/
+	/**
+	 * @author DanishR
+	 * @param serverType
+	 */
+	public void verifyGujaratTitleNavigation(String serverType)
+	{
+		verifyTitleNavigation(serverType, gujaratSectionTitleLnk, articleBreadcrumb);
+	}
+
+	/**
+	 * @author DanishR
+	 * This method used to verify Gujarati Slider Navigation on Home Page
+	 */
+	public void verifyGujaratSliderNavigation()
+	{
+		SoftAssert softAssert =new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.continuousScrollTillElement(gujaratSectionNextBtn, 10);
+		webDriverActions.softMouseHover(gujaratSectionNextBtn);
+		webDriverActions.softScrollToElement(gujaratSectionNextBtn);
+		if(webDriverActions.isElementDisplayed(gujaratSectionNextBtn))
+		{
+			for(int i = 0 ; i< 10 ; i++)
+			{
+				webDriverActions.softMouseHover(gujaratSectionNextBtn);
+				webDriverActions.softScrollToElement(gujaratSectionNextBtn);
+				String beforeSlide = webDriverActions.getTextFromElement(activeGujaratCityName);
+				Logs.info(getClass(), beforeSlide);
+				webDriverActions.softClickJS(gujaratSectionNextBtn);
+				webDriverActions.waitForSecond(2000);
+				String afterSlide = webDriverActions.getTextFromElement(activeGujaratCityName);
+				Logs.info(getClass(), afterSlide);
+				softAssert.assertNotEquals(beforeSlide, afterSlide , "Possibly Next Slider is Not Working ");
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Next Slider Button Is Not Displayed ");
+		}
+
+		if(webDriverActions.isElementDisplayed(gujaratSectionPreviousBtn))
+		{
+			for(int i = 0 ; i< 10 ; i++)
+			{
+				webDriverActions.softMouseHover(gujaratSectionPreviousBtn);
+				webDriverActions.softScrollToElement(gujaratSectionPreviousBtn);
+				String beforeSlide = webDriverActions.getTextFromElement(activeGujaratCityName);
+				Logs.info(getClass(), beforeSlide);
+				webDriverActions.softClickJS(gujaratSectionPreviousBtn);
+				webDriverActions.waitForSecond(2000);
+				String afterSlide = webDriverActions.getTextFromElement(activeGujaratCityName);
+				Logs.info(getClass(), afterSlide);
+				softAssert.assertNotEquals(beforeSlide, afterSlide , "Possibly Previous Slider is Not Working ");
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Previous Slider Button Is Not Displayed ");
+		}
+		softAssert.assertAll("Issue in Homepage Body ");
+	}
+
+	//	/**
+	//	 * @author DanishR
+	//	 * This method is used to click and navigate to gujarat Cities Articles
+	//	 */
+	//	public void verifyGujaratCitiesNavigation(String serverType)
+	//	{
+	//
+	//		SoftAssert softAssert =new SoftAssert();
+	//		webDriverActions.waitForPageToLoad();
+	//		String homeUrl = webDriverActions.getCurrentPageUrl();
+	//		webDriverActions.softScrollToElement(gujaratSectionCitiesName.get(0));
+	//		softAssert.assertTrue(gujaratSectionCitiesName.size()>0, "Possibly Element is Not Visible "+webDriverActions.getCurrentPageUrl());
+	//
+	//		/* Below loop validates the Gujarati cities articles Navigations */
+	//		for (int i = 0; i < 10;i++) {
+	//			webDriverActions.softHighlightElement(gujaratSectionCitiesName.get(i));
+	//			webDriverActions.softMouseHover(gujaratSectionCitiesName.get(i));
+	//			webDriverActions.softClickJS(gujaratSectionCitiesName.get(i));
+	//			webDriverActions.waitForSecond(2000);
+	//
+	//			for (int j = 0; j < gujaratSectionArticleLnk.size();j++) {
+	//				webDriverActions.softHighlightElement(gujaratSectionArticleLnk.get(j));
+	//				webDriverActions.softMouseHover(gujaratSectionArticleLnk.get(j));
+	//				webDriverActions.softClickJS(gujaratSectionArticleLnk.get(j));
+	//				webDriverActions.waitForSecond(2000);
+	//				String currentPageUrl = webDriverActions.getCurrentPageUrl();
+	//				if (serverType.contains("preProd")) {
+	//					String betaUrl = genericUtility.replaceInUrl(currentPageUrl);
+	//					webDriverActions.navigateToUrl(betaUrl);
+	//					currentPageUrl=betaUrl;
+	//				}
+	//				webDriverActions.softHighlightElement(articleBreadcrumb);
+	//				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(articleBreadcrumb) | webDriverActions.softIsElementDisplayed(articleBreadcrumb), "Possibly Element is Not Visible "+currentPageUrl);
+	//				webDriverActions.navigateToUrl(homeUrl);
+	//				webDriverActions.waitForSecond(2000);
+	//				webDriverActions.softHighlightElement(gujaratSectionCitiesName.get(i));
+	//				webDriverActions.softMouseHover(gujaratSectionCitiesName.get(i));
+	//				webDriverActions.softClickJS(gujaratSectionCitiesName.get(i));
+	//				webDriverActions.waitForSecond(2000);
+	//			}
+	//		}
+	//		softAssert.assertAll("Issues Found In Validating Gujarat Section Cities Articles Present on HomePage");
+	//	}
+
+	/**
+	 * @author DanishR
+	 * This method is used to click and navigate to gujarat Cities Articles
+	 */
+	public void verifyGujaratCitiesNavigation(String serverType)
+	{
+		HomePageLinksValidation http = new HomePageLinksValidation(driver);
+
+		SoftAssert softAssert =new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softScrollToElement(gujaratSectionCitiesName.get(0));
+		softAssert.assertTrue(gujaratSectionCitiesName.size()>0, "Possibly Element is Not Visible "+webDriverActions.getCurrentPageUrl());
+		ArrayList<String> articleList = new ArrayList<>();
+		webDriverActions.waitForElement(1000);
+
+		for (int i = 0; i <gujaratSectionCitiesName.size() ;i++) {
+			webDriverActions.softMouseHover(gujaratSectionCitiesName.get(i));
+			webDriverActions.softHighlightElement(gujaratSectionCitiesName.get(i));
+			webDriverActions.softClickJS(gujaratSectionCitiesName.get(i));
+			webDriverActions.waitForSecond(2000);
+			for (int j = 0; j < gujaratSectionArticleLnk.size();j++) {
+				String aticleLink = gujaratSectionArticleLnk.get(j).getAttribute("href");
+				if (serverType.equalsIgnoreCase("preProd")) {
+					String betaUrl = genericUtility.replaceInUrl(aticleLink);	
+					articleList.add(betaUrl);
+				}
+			}
+			//			webDriverActions.softClickJS(kannadaSectionNextBtn);
+		}
+		Logs.info(getClass(),"Total Links "+articleList.size());
+		long startingTime= System.currentTimeMillis();
+		articleList.parallelStream().forEach(e -> http.checkLinks(e));
+		long endingTime= System.currentTimeMillis();
+		Logs.info(getClass(),"  Total time  "+(endingTime-startingTime)/1000 +"s");
+		softAssert.assertAll("Issue present in this Url : "+webDriverActions.getCurrentPageUrl()+" "+" are below ");
+
+	}
+
+	/**
+	 * @author DanishR
+	 * @param serverType
+	 * This method is used to verify Read more Link of Gujarat section
+	 */
+	public void verifyGujaratReadMoreNavigation(String serverType)
+	{
+		verifyMoreNewsNavigation(serverType,gujaratSectionReadMoreLnk , articleBreadcrumb);
+	}
+
+	/**
+	 * @author DanishR
+	 * @param serverType
+	 * This method is used to verify Superhit Gallery Article Links Navigation
+	 */
+	public void verifySuperhitGalleryArticleNavigation(String serverType)
+	{
+		verifyArticleNavigation(serverType, superhitGalleryArticleLnk, articleBreadcrumb);
+	}
+
+	/**
+	 * @author DanishR
+	 * @param serverType
+	 * This method is used to verify Superhit Gallery Article Image Links Navigation
+	 */
+	public void verifySuperhitGalleryImageNavigation(String serverType)
+	{
+		verifyImageNavigation(serverType, superhitGalleryImgLnk	, articleBreadcrumb);
+	}
+
+	/**
+	 * @author DanishR
+	 * @param serverType
+	 * This method is used to verify Superhit Gallery Title Navigation
+	 */
+	public void verifySuperhitGalleryTitleNavigation(String serverType)
+	{
+		verifyTitleNavigation(serverType, superhitGalleryTitleLnk, articleBreadcrumb);
+	}
+
+
+	/********************************Rahul*Business*Logic***********************************************/
+
+	/**
+	 * @author Rahul
+	 * This method is used to click the superhit article present at the RHS
+	 * @param serverType
+	 */
+	public void verifySuperHitArticleLnk(String serverType) {
+		SoftAssert softAssert = new SoftAssert(); 
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softScrollToElement(videoHeadline);
+		for(int i=0;i<superhitArticle.size();i++) {
+			webDriverActions.softMouseHover(superhitArticle.get(i));
+			webDriverActions.softScrollToElement(superhitArticle.get(i));
+			webDriverActions.softClickJS(superhitArticle.get(i));
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			if (serverType.equalsIgnoreCase("preprod")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage = betaUrl;
+			}
+			else {
+				Logs.info(getClass(), "Navigated to "+currentPage);
+			}
+			Logs.info(getClass(), currentPage);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(articleBreadcrumb) , "Unable to Display Element in " +currentPage);
+			webDriverActions.navigateBack();
+			webDriverActions.softClickJS(suprhitnxtBtn);
+		}
+		softAssert.assertAll("Issues Found in RHS Desktop");
+	}
+
+	/**
+	 * @author Rahul
+	 * This method is used to click on the left and right arrow present at the RHS of the Home page
+	 * @param serverType
+	 */
+	public void verifySuperhitSliderNavigation(String serverType) {
+		SoftAssert softAssert = new SoftAssert(); 
+		{
+			webDriverActions.waitForPageToLoad();
+			webDriverActions.softMouseHover(videoHeadline);
+			webDriverActions.softScrollToElement(videoHeadline);
+			if(webDriverActions.isElementDisplayed(suprhitnxtBtn))
+			{
+				for(int i = 0; i<superhitArticle.size() ; i++)
+				{
+					webDriverActions.softMouseHover(suprhitnxtBtn);
+					webDriverActions.softScrollToElement(suprhitnxtBtn);
+					webDriverActions.softClickJS(suprhitnxtBtn);
+					softAssert.assertTrue(webDriverActions.isElementDisplayed(superHitText), "Unable to Display Element "+suprhitnxtBtn);
+				}
+			}
+			else
+			{
+				softAssert.fail("Possibly Superhit Section Right Slider Button is not Displayed");
+			}
+
+			if(webDriverActions.isElementDisplayed(suprhitPrevBtn))
+			{
+				for(int i = 0; i<superhitArticle.size() ; i++)
+				{
+					webDriverActions.softMouseHover(suprhitPrevBtn);
+					webDriverActions.softScrollToElement(suprhitPrevBtn);
+					webDriverActions.softClickJS(suprhitPrevBtn);
+					softAssert.assertTrue(webDriverActions.isElementDisplayed(superHitText), "Unable to Display Element "+suprhitPrevBtn);
+				}
+			}
+			else
+			{
+				softAssert.fail("Possibly Superhit Section Left Slider Button is not Displayed");
+			}
+			softAssert.assertAll("Issues Found in RHS Desktop");
+		}
+	}
+
+	/**
+	 * @author Rahul
+	 * This method is used to click on the live now article present at the RHS of the Home page
+	 * @param serverType
+	 */
+	public void verifyLiveNowArticle(String serverType) {
+		SoftAssert softAssert = new SoftAssert();
+		webDriverActions.waitForPageToLoad();
+		String homePage = webDriverActions.getCurrentPageUrl();
+		webDriverActions.scrollDown();
+		webDriverActions.softWaitForElementVisibility(liveNowSectionArticle.get(0), 5);
+		for (int i = 0; i < liveNowSectionArticle.size(); i++) {
+			webDriverActions.softHighlightElement(liveNowSectionArticle.get(i));
+			webDriverActions.navigateToNewTab(liveNowSectionArticle.get(i));
+			webDriverActions.switchToNewWindow();
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			if (serverType.equalsIgnoreCase("preprod")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage = betaUrl;
+			}
+			else {
+				Logs.info(getClass(), "Navigated to "+currentPage);
+			}
+			Logs.info(getClass(), currentPage);
+			String actual = webDriverActions.getPageTitle();
+			System.out.println(actual);
+			softAssert.assertTrue(!(actual.contains("404"))," Page has error "+ actual);
+			webDriverActions.closeDriver();
+			webDriverActions.switchToWindow(homePage);
+			webDriverActions.softClickJS(liveNowNext);
+		}
+		softAssert.assertAll("Issues Found in RHS Desktop");
+	}
+
+	/**
+	 * @author Rahul
+	 * This method is used to click on the Left and Right arrow of the Live now section present at the RHS of the Home page
+	 * @param serverType
+	 */
+	public void verifyLiveNowsliderNavigation(String serverType) {
+		SoftAssert softAssert = new SoftAssert(); 
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softMouseHover(videoHeadline);
+		webDriverActions.softScrollToElement(videoHeadline);
+		webDriverActions.softMouseHover(liveNowSectionArticle.get(0));
+		webDriverActions.softHighlightElement(liveNowSectionArticle.get(0));
+		webDriverActions.waitForSecond(2000);
+		if(webDriverActions.isElementDisplayed(liveNowSectionArticle.get(0)))
+		{
+			for(int i = 0; i<liveNowSectionArticle.size() ; i++)
+			{
+				webDriverActions.softMouseHover(liveNowNext);
+				webDriverActions.softScrollToElement(liveNowNext);
+				webDriverActions.mouseHoverAndClick(liveNowNext);
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Live Section Right Slider Button is not Displayed");
+		}
+		if(webDriverActions.isElementDisplayed(liveNowSectionArticle.get(0)))
+		{
+			for(int i = 0; i<liveNowSectionArticle.size() ; i++)
+			{
+				webDriverActions.softMouseHover(liveNowPrev);
+				webDriverActions.softScrollToElement(liveNowPrev);
+				webDriverActions.softClickJS(liveNowPrev);
+			} 
+		}
+		else
+		{
+			softAssert.fail("Possibly Superhit Section Left Slider Button is not Displayed");
+		}
+		softAssert.assertAll("Issues Found in RHS Desktop");
+	}
+
+
+	//============================= Sanjeeb's Business Logics ==============================
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to navigate to All News18 Languages present in Home Page Header
+	 */
+	public void verifyChangeLanguage() {
+		webDriverActions.waitForPageToLoad();
+		String parentTitle = webDriverActions.getPageTitle();
+		softAssert.assertTrue(changeLanguageList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		if (changeLanguageList.size()>0) {
+			for (int i = 1; i < changeLanguageList.size(); i++) {
+				webDriverActions.softMouseHover(changeLanguageBtn);
+				webDriverActions.softHighlightElement(changeLanguageList.get(i));
+				webDriverActions.softClickJS(changeLanguageList.get(i));
+				webDriverActions.switchToNewWindow();
+				String languageUrl=webDriverActions.getCurrentPageUrl();
+				Logs.info(getClass(), "Naviagted to "+languageUrl);
+				webDriverActions.softWaitForElementVisibility(headerTxtLogoLnk, 3);
+				webDriverActions.stopPageLoading();
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerTxtLogoLnk),"Unable to display "+languageUrl);
+				webDriverActions.closeDriver();
+				webDriverActions.switchToWindow(parentTitle);
+			}
+		}
+		else
+		{
+			softAssert.fail("Possibly Element is Not Visible Or Size is "+changeLanguageList.size());
+		}
+		softAssert.assertAll("Issues found in this Url "+ webDriverActions.getCurrentPageUrl());
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to validate liveTV .
+	 */
+	public void headerliveTVValidation()
+	{
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softMouseHover(LiveTVBtn);
+		webDriverActions.softClickJS(LiveTVBtn);
+		webDriverActions.waitForPageToLoad();
+		softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerTxtLogoLnk),"Unable to display "+webDriverActions.getCurrentPageUrl());
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to validate liveTV .
+	 */
+	public void headerFollowUSSectionValidation()
+	{
+		//it takes the social share Url from property File
+		ArrayList<String> list=new ArrayList<String>();
+		list.add(fileUtility.readDataFromPropertyFile("facebook"));
+		list.add(fileUtility.readDataFromPropertyFile("twitter"));
+		list.add(fileUtility.readDataFromPropertyFile("instagram"));
+		list.add(fileUtility.readDataFromPropertyFile("youtube"));
+		//it add the element of social share icons.
+		ArrayList<WebElement> listEle=new ArrayList<WebElement>();
+		listEle.add(facebookHeader);
+		listEle.add(twitterHeader);
+		listEle.add(instagramHeader);
+		listEle.add(youtubeHeader);
+		webDriverActions.waitForPageToLoad();
+		String pageUrl = webDriverActions.getCurrentPageUrl();
+		softAssert.assertTrue(soialShareList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for (int i = 0; i < soialShareList.size(); i++) {
+			webDriverActions.softMouseHover(soialShareList.get(i));
+			webDriverActions.softClickJS(soialShareList.get(i));
+			webDriverActions.waitForPageToLoad();
+			String actual = webDriverActions.getCurrentPageUrl();
+
+			// it will iterate the list and validate 
+			if(actual.contains("facebook") || actual.contains("twitter") || actual.contains("instagram") || actual.contains("youtube"))
+			{
+				for(int j=0;j<list.size();j++)
+				{
+					if(actual.contains(list.get(j)))
+					{
+						webDriverActions.softWaitForElementVisibility(listEle.get(j), 3);
+						webDriverActions.stopPageLoading();
+						softAssert.assertTrue(webDriverActions.softIsElementDisplayed(listEle.get(j)), "Possibly Element Is Not Visible For This URL "+actual);
+					}
+				}
+			}
+			webDriverActions.navigateToUrl(pageUrl);
+		}
+		softAssert.assertAll("Header Follow Us Validation Failed");
+	}
+
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to validate download app section Present on the header part of Gujarati Homepage.
+	 */
+	public void headerDownloadAppValidation()
+	{
+		webDriverActions.waitForPageToLoad();
+		String pageTitle = webDriverActions.getPageTitle();
+		softAssert.assertTrue(downLoadAppList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for (int i = 0; i < downLoadAppList.size(); i++) {
+			webDriverActions.softMouseHover(downLoadAppList.get(i));
+			webDriverActions.softClickJS(downLoadAppList.get(i));
+			webDriverActions.switchToNewWindow();
+			webDriverActions.waitForPageToLoad();
+			if(webDriverActions.getCurrentPageUrl().contains("play.google.com/"))
+			{
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(googlePlayHeader),"Unable to display "+webDriverActions.getCurrentPageUrl());
+			}
+			else if(webDriverActions.getCurrentPageUrl().contains(fileUtility.readDataFromPropertyFile("apple")))
+			{
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(appleHeader),"Unable to display "+webDriverActions.getCurrentPageUrl());	
+			}
+			webDriverActions.closeDriver();
+			webDriverActions.switchToWindow(pageTitle);	
+		}
+	}
+
+
+	/**
+	 * This method is used to Validate Trending Topics Section in Home Page
+	 */
+	public void verifyTrendingTopics(String serverType) {
+		webDriverActions.waitForPageToLoad();
+		String parent = webDriverActions.getCurrentPageUrl();
+		softAssert.assertTrue(headerTrendingTopicsLnks.size()>0, " Possibly Element is Not Visible "+ webDriverActions.getCurrentPageUrl());
+		for (int i = 0;i<headerTrendingTopicsLnks.size() ; i++) {
+			webDriverActions.softClickJS(headerTrendingTopicsLnks.get(i));
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			//Below if condition replaces to Beta Url
+			if (serverType.equalsIgnoreCase("preProd") && !currentPage.contains("//beta")) {
+				String betaUrl = genericUtility.replaceInUrl(currentPage);
+				webDriverActions.navigateToUrl(betaUrl);
+				currentPage=betaUrl;
+			}
+			else {
+				Logs.info(getClass(), "Navigated to "+currentPage);
+			} 
+			webDriverActions.waitForPageToLoad();
+			Logs.info(getClass(), "Navigated to Trending Topic Link "+ webDriverActions.getCurrentPageUrl());
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Failed to Display "+currentPage);
+			webDriverActions.navigateToUrl(parent);
+		}
+		softAssert.assertAll("Issues found in this Url "+ webDriverActions.getCurrentPageUrl());
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This Method is use to verify elements Present In Line One Section By Clicking On It.
+	 */
+	public void verfyLineOneSection(String server)
+	{
+		webDriverActions.waitForPageToLoad();
+		//Validating the Line one section Except Search Button
+		softAssert.assertTrue(lineOneSectionELementLnk.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for (int i = 0; i < lineOneSectionELementLnk.size()-1; i++)
+		{
+			String actual = webDriverActions.getAttribute("href", lineOneSectionELementLnk.get(i));
+			webDriverActions.softClick(lineOneSectionELementLnk.get(i));
+			if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.softClickJS(lineOneSectionELementLnk.get(i));
+			}
+			String expected = webDriverActions.getCurrentPageUrl();	
+			String currentPage = webDriverActions.getCurrentPageUrl();	
+			if(server.contains("preProd")&& !expected.contains("//beta"))
+			{
+				String betaUrl = genericUtility.replaceInUrl(expected);
+				expected=betaUrl;
+				webDriverActions.navigateToUrl(expected);
+			}
+			webDriverActions.softWaitForElementVisibility(headerBreadcrumbLnk, 3);
+			webDriverActions.stopPageLoading();
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Failed To display Header Icon For This URL"+actual);
+			if(expected.equals(currentPage))
+			{
+				webDriverActions.navigateBack();	
+			}
+			else
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.navigateBack();
+			}
+		}
+
+		//validating Search Button
+		webDriverActions.waitForSecond(5000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("document.querySelector('div[class=\"jsx-2746090766 Menu_header_search__XynqV header_search\"]>a:nth-child(2)').click();");
+		webDriverActions.waitForSecond(5000);
+		webDriverActions.inputText(searchBoxBtn, "News 18");
+		webDriverActions.softHighlightElement(insideSearchIcon);
+		webDriverActions.softClick(insideSearchIcon);
+		webDriverActions.waitForSecond(2000);
+		webDriverActions.softHighlightElement(closeBtn);
+		softAssert.assertTrue(webDriverActions.softIsElementDisplayed(closeBtn), "Posibly Search Box is not displayed");	
+		softAssert.assertAll("Issues Found In Line One Sections");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This Method is use to verify Line Two Section.
+	 */
+	public void verfyLineTwoSection(String server)
+	{
+		webDriverActions.waitForPageToLoad();
+		//it takes the social share Url from property File
+		ArrayList<String> list=new ArrayList<String>();
+		list.add(fileUtility.readDataFromPropertyFile("itsnotok"));
+		list.add(fileUtility.readDataFromPropertyFile("netrasuraksha"));
+		list.add(fileUtility.readDataFromPropertyFile("crypto"));
+		list.add(fileUtility.readDataFromPropertyFile("electral"));
+		
+		//it add the element of social share icons.
+		ArrayList<WebElement> listEle=new ArrayList<WebElement>();
+		listEle.add(trueCallerAndNetraSurkshaIcon);
+		listEle.add(trueCallerAndNetraSurkshaIcon);
+		listEle.add(cryptoKiSamajhIcon);
+		listEle.add(electricalHydraIcon);
+		String pageURL = webDriverActions.getPageTitle();
+		//It will fetch the line one Elements except search Icon
+		softAssert.assertTrue(lineTwoSectionsLnk.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for (int i = 0; i < lineTwoSectionsLnk.size(); i++)
+		{
+			webDriverActions.softHighlightElement(lineTwoSectionsLnk.get(i));
+			String actual = webDriverActions.getAttribute("href", lineTwoSectionsLnk.get(i));
+			String title = webDriverActions.getAttribute("target", lineTwoSectionsLnk.get(i));
+			webDriverActions.softClickJS(lineTwoSectionsLnk.get(i));
+			if(title.contains("_blank"))
+			{
+				webDriverActions.switchToNewWindow();
+			}
+			if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.softClickJS(lineTwoSectionsLnk.get(i));
+				if(title.contains("_blank"))
+				{
+					webDriverActions.switchToNewWindow();
+				}
+				else
+				{
+					webDriverActions.waitForSecond(1000);
+				}
+			}
+			String expected = webDriverActions.getCurrentPageUrl();	
+			String currentPage = webDriverActions.getCurrentPageUrl();	
+			// it will iterate the list and validate 
+			if(actual.contains("itsnotok") || actual.contains("netrasuraksha") || actual.contains("crypto") || actual.contains("electral"))
+			{
+				for(int j=0;j<list.size();j++)
+				{
+					if(actual.contains(list.get(j)))
+					{
+						webDriverActions.softWaitForElementVisibility(listEle.get(j), 3);
+						webDriverActions.stopPageLoading();
+						softAssert.assertTrue(webDriverActions.softIsElementDisplayed(listEle.get(j)), "Possibly Element Is Not Visible For This URL "+expected);	
+					}
+				}
+			}
+			else
+			{
+				if(server.contains("preProd")&& !expected.contains("//beta"))
+				{
+					String betaUrl = genericUtility.replaceInUrl(expected);
+					expected=betaUrl;
+					webDriverActions.navigateToUrl(expected);
+				}
+				webDriverActions.softWaitForElementVisibility(headerTxtLogoLnk, 3);
+				webDriverActions.stopPageLoading();
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerTxtLogoLnk), "Possibly Element Is Not Visible For This URL "+expected);	
+			}
+			if(title.contains("_blank"))
+			{
+				webDriverActions.closeDriver();
+				webDriverActions.switchToWindow(pageURL);
+			}
+			else
+			{
+				if(currentPage.equals(expected))
+				{
+					webDriverActions.navigateBack();
+				}
+				else
+				{
+					webDriverActions.navigateBack();
+					webDriverActions.navigateBack();
+				}
+			}
+		}
+		softAssert.assertAll("Issues Found In Validating Line Two Sections");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This Method is use to verify Line One Hamburger Menu and Line Two Section after clicking on the hamburger Icon.
+	 */
+	public void verfyLineOneHamburgerMenu(String server)
+	{
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.waitForElement(1000);
+		webDriverActions.softClickJS(hamburgerMenuLnk);
+		//It will fetch the line one Elements except search Icon
+		softAssert.assertTrue(hamburgerSectionsLnk.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for (int i = 0; i < hamburgerSectionsLnk.size(); i++)
+		{
+			webDriverActions.softHighlightElement(hamburgerSectionsLnk.get(i));
+			String actual = webDriverActions.getAttribute("href", hamburgerSectionsLnk.get(i));
+			webDriverActions.softClickJS(hamburgerSectionsLnk.get(i));
+			if(webDriverActions.getCurrentPageUrl().contains("google_vignette") || webDriverActions.getCurrentPageUrl().contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.softClickJS(hamburgerMenuLnk);
+				webDriverActions.navigateBack();
+				webDriverActions.softClickJS(hamburgerSectionsLnk.get(i));
+			}
+			String expected = webDriverActions.getCurrentPageUrl();	
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			if(server.contains("preProd")&& !expected.contains("//beta"))
+			{
+				String betaUrl = genericUtility.replaceInUrl(expected);
+				expected=betaUrl;
+				webDriverActions.navigateToUrl(expected);
+			}
+			webDriverActions.softWaitForElementVisibility(headerBreadcrumbLnk, 3);
+			webDriverActions.stopPageLoading();
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Failed To display The Header Text For This URL "+actual);
+			if(currentPage.equals(expected))
+			{
+				webDriverActions.navigateBack();
+			}
+			else
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.navigateBack();
+			}
+
+			webDriverActions.softClickJS(hamburgerMenuLnk);
+		}
+		softAssert.assertAll("Issues Found In Validating Hamburger Menu");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify Line One Section Choose Your District Present in Hindi Desktop Landing Page.
+	 */
+	public void verifyLineOneSectionChooseYourDistrict(String server)
+	{
+		//This line of Script to verify RajyaSeher Chune Icon Present in the Linone Section of Hindi News 18 Home Page.
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.waitForElement(1000);
+		webDriverActions.softClickJS(chooseYourDistrictBtn);
+		softAssert.assertTrue(chooseYourDistrictEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for(int i=0;i<chooseYourDistrictEleList.size();i++)
+		{
+			webDriverActions.softHighlightElement(chooseYourDistrictEleList.get(i));
+			String expected = webDriverActions.getAttribute("href", chooseYourDistrictEleList.get(i));
+			Logs.info(getClass(), expected);
+			webDriverActions.softClickJS(chooseYourDistrictEleList.get(i));
+			String currentPageUrl=webDriverActions.getCurrentPageUrl();
+			if(currentPageUrl.contains("google_vignette") || currentPageUrl.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.softClickJS(chooseYourDistrictEleList.get(i));
+			}
+			String currentPage = webDriverActions.getCurrentPageUrl();
+			String actual = webDriverActions.getCurrentPageUrl();
+			if(server.contains("preProd")&& !actual.contains("//beta"))
+			{
+				String betaUrl = genericUtility.replaceInUrl(actual);
+				expected=betaUrl;
+				webDriverActions.navigateToUrl(expected);
+			}
+			webDriverActions.stopPageLoading();
+			webDriverActions.softWaitForElementVisibility(headerBreadcrumbLnk, 3);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Possibly Element Is Not Visible For This URL "+actual);
+			if(currentPage.equals(actual))
+			{
+				webDriverActions.navigateBack();
+			}
+			else
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.navigateBack();
+			}
+			webDriverActions.softClickJS(chooseYourDistrictBtn);
+		}
+		softAssert.assertAll("Rajya Seher Chune Verification Failed");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify footer live Tv in desktop Landing page.
+	 */
+	public void verifyFooterLiveTv()
+	{
+		String pageURL = webDriverActions.getCurrentPageUrl();
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softScrollToElement(footerLiveTVSection);
+		webDriverActions.softHighlightElement(footerLiveTVSection);
+		softAssert.assertTrue(liveTvEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for(int i=0;i<liveTvEleList.size();i++)
+		{
+			webDriverActions.softMouseHover(liveTvEleList.get(i));
+			webDriverActions.softHighlightElement(liveTvEleList.get(i));
+			webDriverActions.mouseHoverAndClick(liveTvEleList.get(i));
+			webDriverActions.waitForPageToLoad();
+			String currentPageUrl=webDriverActions.getCurrentPageUrl();
+			if(currentPageUrl.contains("google_vignette") || currentPageUrl.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.softClickJS(chooseYourDistrictEleList.get(i));
+			}
+			String actual = webDriverActions.getCurrentPageUrl();
+			webDriverActions.softWaitForElementVisibility(headerTxtLogoLnk, 3);
+			webDriverActions.stopPageLoading();
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Possibly Element Is Not Visible For This URL "+actual);
+			webDriverActions.navigateToUrl(pageURL);
+			webDriverActions.softScrollToElement(footerLiveTVSection);
+			webDriverActions.softClickJS(footerLiveTVSectionNextBtn);
+			
+		}
+		softAssert.assertAll("Live Tv Validation Failed");
+
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify footer bivag section of Desktop Landing Page.
+	 */
+	public void verifyFooterBivagSection(String server)
+	{
+		webDriverActions.waitForPageToLoad();
+		webDriverActions.softScrollToElement(footerBivagSection);
+		webDriverActions.softHighlightElement(footerBivagSection);
+		softAssert.assertTrue(footerBivagEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for(int i=0;i<footerBivagEleList.size();i++)
+		{
+			webDriverActions.softClickJS(footerBivagEleList.get(i));
+			String currentPageUrl=webDriverActions.getCurrentPageUrl();
+			if(currentPageUrl.contains("google_vignette") || currentPageUrl.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateBack();
+				webDriverActions.softScrollToElement(footerBivagSection);
+				webDriverActions.softClickJS(footerBivagEleList.get(i));
+				webDriverActions.waitForPageToLoad();
+			}
+			String current = webDriverActions.getCurrentPageUrl();
+			String actual = webDriverActions.getCurrentPageUrl();
+			if(server.contains("preProd") && actual.contains("//beta"))
+			{
+				String betaUrl = genericUtility.replaceInUrl(actual);
+				actual=betaUrl;
+				webDriverActions.navigateToUrl(actual);
+			}
+			webDriverActions.softWaitForElementVisibility(headerBreadcrumbLnk, 3);
+			webDriverActions.stopPageLoading();
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Possibly Element Is Not Visible For This URL "+actual);
+            if(current.equals(actual))
+            {
+            	webDriverActions.navigateBack();
+            }
+            else
+            {
+            	webDriverActions.navigateBack();
+            	webDriverActions.navigateBack();
+            }
+			webDriverActions.softScrollToElement(footerBivagSection);
+		}
+		softAssert.assertAll("Footer bivag Section validation Unsucessful");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify footer bivag section of Desktop Landing Page.
+	 */
+	public void verifyFooterAboutUSSection()
+	{
+		webDriverActions.waitForPageToLoad();
+		String pageURL = webDriverActions.getCurrentPageUrl();
+		webDriverActions.continuousScrollTillElement(footerAboutUSSection,20);
+		webDriverActions.softHighlightElement(footerAboutUSSection);
+		softAssert.assertTrue(footerAboutUSEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for(int i=1;i<footerAboutUSEleList.size();i++)
+		{
+			webDriverActions.softClickJS(footerAboutUSEleList.get(i));
+			String currentPageUrl=webDriverActions.getCurrentPageUrl();
+			if(currentPageUrl.contains("google_vignette") || currentPageUrl.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateToUrl(pageURL);
+				webDriverActions.continuousScrollTillElement(footerBivagSection,20);
+				webDriverActions.softClickJS(footerAboutUSEleList.get(i));
+			}
+			String actual = webDriverActions.getCurrentPageUrl();
+			webDriverActions.softWaitForElementVisibility(headerBreadcrumbLnk, 3);
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Possibly Element Is Not Visible For This URL "+actual);
+			webDriverActions.navigateToUrl(pageURL);
+			webDriverActions.continuousScrollTillElement(footerAboutUSSection,20);
+		}
+		softAssert.assertAll("Footer bivag Section validation Unsucessful");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify footer bivag section of Desktop Landing Page.
+	 */
+	public void verifyFooterLatestSection(String server)
+	{
+		webDriverActions.waitForPageToLoad();
+		String pageURL = webDriverActions.getCurrentPageUrl();
+		webDriverActions.softScrollToElement(footerLatestNewsSection);
+		webDriverActions.softHighlightElement(footerLatestNewsSection);
+		softAssert.assertTrue(footerLatestNewsEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for(int i=0;i<footerLatestNewsEleList.size();i++)
+		{
+			webDriverActions.softClickJS(footerLatestNewsEleList.get(i));
+			webDriverActions.waitForPageToLoad();
+			String currentPageUrl=webDriverActions.getCurrentPageUrl();
+			if(currentPageUrl.contains("google_vignette") || currentPageUrl.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateToUrl(pageURL);
+				webDriverActions.softScrollToElement(footerBivagSection);
+				webDriverActions.softClickJS(footerLatestNewsEleList.get(i));
+				webDriverActions.waitForPageToLoad();
+			}
+			String actual = webDriverActions.getCurrentPageUrl();
+			if(server.contains("preProd"))
+			{
+				String betaUrl = genericUtility.replaceInUrl(actual);
+				actual=betaUrl;
+				webDriverActions.navigateToUrl(actual);
+			}
+			softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerBreadcrumbLnk), "Possibly Element Is Not Visible For This URL "+actual);
+			webDriverActions.navigateToUrl(pageURL);
+			webDriverActions.softScrollToElement(footerLatestNewsSection);
+		}
+		softAssert.assertAll("Footer bivag Section validation Unsucessful");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify footer bivag section of Desktop Landing Page.
+	 */
+	public void verifyFooterNews18GroupSitesSection()
+	{
+		webDriverActions.waitForPageToLoad();
+		//it takes the social share Url from property File
+		ArrayList<String> list=new ArrayList<String>();
+		list.add(fileUtility.readDataFromPropertyFile("younggenius"));
+		list.add(fileUtility.readDataFromPropertyFile("firstpost"));
+		list.add(fileUtility.readDataFromPropertyFile("cnbctv18"));
+		list.add(fileUtility.readDataFromPropertyFile("historyindia"));
+		list.add(fileUtility.readDataFromPropertyFile("mtvindia"));
+		list.add(fileUtility.readDataFromPropertyFile("moneycontrol"));
+		list.add(fileUtility.readDataFromPropertyFile("googlePlay"));
+		list.add(fileUtility.readDataFromPropertyFile("compareindia"));
+
+		//it add the element of social share icons.
+		ArrayList<WebElement> listEle=new ArrayList<WebElement>();
+		listEle.add(townHallAndTopLearningIcon);
+		listEle.add(firstPostAndCnbcIcon);
+		listEle.add(firstPostAndCnbcIcon);
+		listEle.add(historyAndMTvIcon);
+		listEle.add(historyAndMTvIcon);
+		listEle.add(moneyControlInstaPlayStoreIcon);
+		listEle.add(moneyControlInstaPlayStoreIcon);
+		listEle.add(compareIndiaIcon);
+
+		String pageURL = webDriverActions.getCurrentPageUrl();
+		String pageTitle = webDriverActions.getPageTitle();
+		webDriverActions.softScrollToElement(footerGroupSitesSection);
+		webDriverActions.softHighlightElement(footerGroupSitesSection);
+		softAssert.assertTrue(footerGroupSitesEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+
+		for(int i=0;i<footerGroupSitesEleList.size();i++)
+		{
+			String expected = webDriverActions.getAttribute("href", footerGroupSitesEleList.get(i));
+			Logs.info(getClass(), expected);
+			String title = webDriverActions.getAttribute("target", footerGroupSitesEleList.get(i));
+			webDriverActions.softClickJS(footerGroupSitesEleList.get(i));
+			if(title.contains("_blank"))
+			{
+				webDriverActions.switchToNewWindow();
+			}
+			webDriverActions.waitForPageToLoad();
+			String currentPageUrl=webDriverActions.getCurrentPageUrl();
+			if(currentPageUrl.contains("google_vignette") || currentPageUrl.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateToUrl(pageURL);
+				webDriverActions.softScrollToElement(footerGroupSitesSection);
+				webDriverActions.softClickJS(footerGroupSitesEleList.get(i));
+				if(title.contains("_blank"))
+				{
+					webDriverActions.switchToNewWindow();
+				}
+				else
+				{
+					webDriverActions.waitForSecond(1000);
+				}
+				webDriverActions.waitForPageToLoad();
+			}
+			String actual = webDriverActions.getCurrentPageUrl();
+			
+			// it will iterate the list and validate 
+			if(actual.contains("topperlearning") || actual.contains("firstpost") || actual.contains("cnbctv18") || actual.contains("historyindia") || actual.contains("mtvindia") || actual.contains("moneycontrol") || actual.contains("googlePlay") || actual.contains("compareindia") || actual.contains("caprep18"))
+			{
+				for(int j=0;j<list.size();j++)
+				{
+					if(actual.contains(list.get(j)))
+					{
+						webDriverActions.softWaitForElementVisibility(listEle.get(j), 3);
+						webDriverActions.stopPageLoading();
+						softAssert.assertTrue(webDriverActions.softIsElementDisplayed(listEle.get(j)), "Possibly Element Is Not Visible For This URL "+actual);	
+					}
+				}
+			}
+			else
+			{
+				webDriverActions.softWaitForElementVisibility(headerTxtLogoLnk, 3);
+				webDriverActions.stopPageLoading();
+				softAssert.assertTrue(webDriverActions.softIsElementDisplayed(headerTxtLogoLnk), "Possibly Element Is Not Visible For This URL "+actual);	
+			}
+			if(title.contains("_blank"))
+			{
+				webDriverActions.waitForSecond(1000);
+				webDriverActions.closeDriver();
+				webDriverActions.waitForSecond(1000);
+				webDriverActions.switchToWindow(pageTitle);
+			}
+			else
+			{
+				webDriverActions.waitForSecond(3000);
+				webDriverActions.navigateToUrl(pageURL);
+				webDriverActions.waitForSecond(1000);
+			}
+			webDriverActions.softScrollToElement(footerGroupSitesSection);	
+		}
+		softAssert.assertAll("Footer News 18 Group Sites Validation Unsucessful");
+	}
+
+
+	/**
+	 * @author SanjeebKumarPati
+	 * This method used to verify footer Social Share section of Desktop Landing Page.
+	 */
+	public void verifyFooterSocialSectionValidation()
+	{
+		webDriverActions.waitForPageToLoad();
+		//it takes the social share Url from property File
+		ArrayList<String> list=new ArrayList<String>();
+		list.add(fileUtility.readDataFromPropertyFile("facebook"));
+		list.add(fileUtility.readDataFromPropertyFile("twitter"));
+		list.add(fileUtility.readDataFromPropertyFile("instagram"));
+		list.add(fileUtility.readDataFromPropertyFile("youtube"));
+		list.add(fileUtility.readDataFromPropertyFile("jionews"));
+		list.add(fileUtility.readDataFromPropertyFile("googlePlay"));
+		list.add(fileUtility.readDataFromPropertyFile("apple"));
+
+		//it add the element of social share icons.
+		ArrayList<WebElement> listEle=new ArrayList<WebElement>();
+		listEle.add(facebookHeader);
+		listEle.add(twitterHeader);
+		listEle.add(instagramHeader);
+		listEle.add(youtubeHeader);
+		listEle.add(jioHeader);
+		listEle.add(googlePlayHeader);
+		listEle.add(appleHeader);
+		String pageURL = webDriverActions.getCurrentPageUrl();
+		String pageTitle = webDriverActions.getPageTitle();
+		webDriverActions.softScrollToElement(footerSocialShareSection);
+		webDriverActions.softHighlightElement(footerSocialShareSection);
+		softAssert.assertTrue(footerSocialShareEleList.size()>0,"Unable To Display the Element"+ webDriverActions.getCurrentPageUrl());
+		for(int i=0;i<footerSocialShareEleList.size();i++)
+		{
+			String expected = webDriverActions.getAttribute("href", footerSocialShareEleList.get(i));
+			Logs.info(getClass(), expected);
+			String title = webDriverActions.getAttribute("target", footerSocialShareEleList.get(i));
+			webDriverActions.softClickJS(footerSocialShareEleList.get(i));
+			if(title.contains("_blank"))
+			{
+				webDriverActions.switchToNewWindow();
+			}
+			webDriverActions.waitForPageToLoad();
+			String currentPageURL = webDriverActions.getCurrentPageUrl();
+			if(currentPageURL.contains("google_vignette") || currentPageURL.contains("PWA_ROS_INSTL"))
+			{
+				webDriverActions.navigateToUrl(pageURL);
+				webDriverActions.softScrollToElement(footerSocialShareSection);
+				webDriverActions.softClickJS(footerSocialShareEleList.get(i));
+				if(title.contains("_blank"))
+				{
+					webDriverActions.switchToNewWindow();
+				}
+				else
+				{
+					webDriverActions.waitForSecond(1000);
+				}
+				webDriverActions.waitForPageToLoad();
+			}
+			String actual = webDriverActions.getCurrentPageUrl();
+			String pageTitlle = webDriverActions.getPageTitle();
+			softAssert.assertFalse(pageTitlle.contains("404")||pageTitlle.contains("502")||pageTitlle.contains("500"), "Possibly Page not found Identified for this URL"+actual);
+			
+			// it will iterate the list and validate 
+			for(int j=0;j<list.size();j++)
+			{
+				if(actual.contains(list.get(j)))
+				{
+					softAssert.assertTrue(actual.contains(list.get(j))&&webDriverActions.softIsElementDisplayed(listEle.get(j)), "Possibly Element Is Not Visible For This URL "+actual);
+				}
+			}
+			if(title.contains("_blank"))
+			{
+				webDriverActions.waitForSecond(1000);
+				webDriverActions.closeDriver();
+				webDriverActions.waitForSecond(1000);
+				webDriverActions.switchToWindow(pageTitle);
+			}
+			else
+			{
+				webDriverActions.waitForSecond(3000);
+				webDriverActions.navigateToUrl(pageURL);
+				webDriverActions.waitForSecond(1000);
+			}
+			webDriverActions.softScrollToElement(footerSocialShareSection);	
+		}
+		softAssert.assertAll("Footer News 18 Group Sites Validation Unsucessful");
+	}
+
+}
+
+
+

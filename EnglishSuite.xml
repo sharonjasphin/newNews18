@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/english/EnglishAds.xml"/>
+	<suite-file path="/english/EnglishAMPValidation.xml"/>
+	<suite-file path="/english/EnglishGAComScore.xml"/>
+	<suite-file path="/english/EnglishImageValidation.xml"/>
+	<suite-file path="/english/EnglishIzooto.xml"/>
+	<suite-file path="/english/EnglishLatestSection.xml"/>
+	<suite-file path="/english/EnglishLinkValidation.xml"/>
+	<!-- <suite-file path="/english/EnglishMetaRobot.xml"/> -->
+	<suite-file path="/english/EnglishMetaTagContent.xml"/>
+	<suite-file path="/english/EnglishOutbrain.xml"/>
+	<suite-file path="/english/EnglishSocialShare.xml"/>
+	<suite-file path="/english/EnglishStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->

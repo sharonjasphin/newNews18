@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite  name="Suites" preserve-order="true">
+<suite-files>
+	<suite-file path="/bengali/BengaliAds.xml"/>
+	<suite-file path="/bengali/BengaliAMPValidation.xml"/>
+	<suite-file path="/bengali/BengaliGAComScore.xml"/>
+	<suite-file path="/bengali/BengaliImageValidation.xml"/>
+	<suite-file path="/bengali/BengaliIzooto.xml"/>
+	<suite-file path="/bengali/BengaliLatestSection.xml"/>
+	<suite-file path="/bengali/BengaliLinkValidation.xml"/>
+	<!-- <suite-file path="/bengali/BengaliMetaRobot.xml"/> -->
+	<suite-file path="/bengali/BengaliMetaTagContent.xml"/>
+	<suite-file path="/bengali/BengaliOutbrain.xml"/>
+	<suite-file path="/bengali/BengaliSocialShare.xml"/>
+	<suite-file path="/bengali/BengaliStructureSchema.xml"/>
+</suite-files>
+</suite> <!-- Suite -->
+
